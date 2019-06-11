@@ -42,6 +42,9 @@ import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+/**
+ * Util to send messages safely without risking {@link InsufficientPermissionException}s
+ */
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class SafeMessage {
 

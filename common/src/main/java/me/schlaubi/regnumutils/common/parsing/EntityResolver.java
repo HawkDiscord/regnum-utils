@@ -30,13 +30,13 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 
 /**
- * Useful tool to parse a text-message for EntityResolvable
+ * Useful tool to parse a text-message for EntityResolvable.
  */
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class EntityResolver {
 
     /**
-     * Resolves an {@link User} entity by a mention, it's id or it's name (case-sensitive)
+     * Resolves an {@link User} entity by a mention, it's id or it's name (case-sensitive).
      *
      * @param input e.g an user input that should get parsed for mentions
      * @param jda the {@link JDA} instance of you bot
@@ -51,7 +51,7 @@ public class EntityResolver {
     }
 
     /**
-     * Resolves an {@link TextChannel} entity by a mention, it's id or it's name
+     * Resolves an {@link TextChannel} entity by a mention, it's id or it's name.
      *
      * @param input e.g an user input that should get parsed for mentions
      * @param jda the {@link JDA} instance of you bot
@@ -69,7 +69,7 @@ public class EntityResolver {
 
 
     /**
-     * Resolves an {@link Role} entity by a mention, it's id or it's name (case-sensitive)
+     * Resolves an {@link Role} entity by a mention, it's id or it's name (case-sensitive).
      *
      * @param input e.g an user input that should get parsed for mentions
      * @param guild the {@link Guild} the member is on
@@ -84,7 +84,7 @@ public class EntityResolver {
     }
 
     /**
-     * Resolves an {@link TextChannel} entity by a mention, it's id or it's name
+     * Resolves an {@link TextChannel} entity by a mention, it's id or it's name.
      *
      * @param input e.g an user input that should get parsed for mentions
      * @param guild the {@link Guild} the member is on
@@ -101,7 +101,7 @@ public class EntityResolver {
     }
 
     /**
-     * Resolves an {@link TextChannel} entity by a mention, it's id or it's name (case-sensitive)
+     * Resolves an {@link TextChannel} entity by a mention, it's id or it's name (case-sensitive).
      *
      * @param input e.g an user input that should get parsed for mentions
      * @param guild the {@link Guild} the channel is on
@@ -116,7 +116,7 @@ public class EntityResolver {
     }
 
     /**
-     * Resolves an {@link TextChannel} entity by a mention, it's id or it's name
+     * Resolves an {@link TextChannel} entity by a mention, it's id or it's name.
      *
      * @param input e.g an user input that should get parsed for mentions
      * @param guild the {@link Guild} the channel is on
@@ -133,7 +133,7 @@ public class EntityResolver {
     }
 
     /**
-     * Resolves an {@link Role} entity by a mention, it's id or it's name (case-sensitive)
+     * Resolves an {@link Role} entity by a mention, it's id or it's name (case-sensitive).
      *
      * @param input e.g an user input that should get parsed for mentions
      * @param guild the {@link Guild} the role is on
@@ -148,7 +148,7 @@ public class EntityResolver {
     }
 
     /**
-     * Resolves an {@link Role} entity by a mention, it's id or it's name
+     * Resolves an {@link Role} entity by a mention, it's id or it's name.
      *
      * @param input e.g an user input that should get parsed for mentions
      * @param guild the {@link Guild} the role is on
@@ -165,7 +165,7 @@ public class EntityResolver {
     }
 
     /**
-     * Resolves an {@link IMentionable mentionable} entity by a mention, it's id or it's name (case-sensitive)
+     * Resolves an {@link IMentionable mentionable} entity by a mention, it's id or it's name (case-sensitive).
      *
      * @param input e.g an user input that should get parsed for mentions
      * @param type the {@link net.dv8tion.jda.api.entities.Message.MentionType} of the expected entity
@@ -179,13 +179,13 @@ public class EntityResolver {
             @NotNull String input,
             @NotNull Message.MentionType type,
             @NotNull Function<@NotNull String, @Nullable T> idResolver,
-            @NotNull BiFunction<@NotNull String, Boolean, @Nullable Collection<T>> nameResolver
+            @NotNull BiFunction<@NotNull String, Boolean, @NotNull Collection<T>> nameResolver
     ) {
         return resolveEntity(input, type, idResolver, nameResolver, false);
     }
 
     /**
-     * Resolves an {@link IMentionable mentionable} entity by a mention, it's id or it's name
+     * Resolves an {@link IMentionable mentionable} entity by a mention, it's id or it's name.
      *
      * @param input e.g an user input that should get parsed for mentions
      * @param type the {@link net.dv8tion.jda.api.entities.Message.MentionType} of the expected entity
@@ -200,7 +200,7 @@ public class EntityResolver {
             @NotNull String input,
             @NotNull Message.MentionType type,
             @NotNull Function<@NotNull String, @Nullable T> idResolver,
-            @NotNull BiFunction<@NotNull String, Boolean, @Nullable Collection<T>> nameResolver,
+            @NotNull BiFunction<@NotNull String, Boolean, @NotNull Collection<T>> nameResolver,
             boolean ignoreCase
     ) {
         if (input.isBlank() || input.isEmpty()) {

@@ -19,15 +19,25 @@
 
 package me.schlaubi.regnumutils.common;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Some tools.
+ */
 public class Misc {
 
+    /**
+     * Returns the first element of a {@link Collection}.
+     * @param collection the collection
+     * @param <T> the type of the elements
+     * @return the element or {@code null} if the collection is empty
+     */
     @Nullable
-    public static <T> T first(Collection<T> collection) {
+    public static <T> T first(@NotNull Collection<T> collection) {
         if (collection.isEmpty()) {
             return null;
         }
@@ -38,7 +48,12 @@ public class Misc {
         }
     }
 
-    public static boolean isNumeric(String input) {
+    /**
+     * Checks whether a String is numeric or not.
+     * @param input the string to check
+     * @return whether a String is numeric or not
+     */
+    public static boolean isNumeric(@NotNull String input) {
         return input
                 .chars()
                 .mapToObj(it -> (char) it)
