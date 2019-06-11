@@ -241,6 +241,7 @@ public class GameAnimatorBuilder {
      * @see GameAnimatorBuilder#setInterval(long)
      * @see GameAnimatorBuilder#setInitialDelay(long)
      */
+    @SuppressWarnings("UnusedReturnValue")
     @NotNull
     public GameAnimatorBuilder setTimeUnit(@NotNull TimeUnit unit) {
         this.unit = unit;
@@ -266,7 +267,6 @@ public class GameAnimatorBuilder {
      * @return the {@link GameAnimatorBuilder}
      * @see GameAnimatorBuilder#setApplier(Consumer)
      */
-
     @NotNull
     public GameAnimatorBuilder setShardManager(ShardManager shardManager) {
         return setApplier((game) -> JDAExtensions.applyGame(shardManager, game));

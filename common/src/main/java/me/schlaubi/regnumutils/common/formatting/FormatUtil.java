@@ -22,6 +22,9 @@ package me.schlaubi.regnumutils.common.formatting;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Some useful formatting helpers.
+ */
 public class FormatUtil {
 
     /**
