@@ -13,6 +13,20 @@
 <h3>Parameters</h3>
 <p><a name="manager"></a>
 <code>manager</code> - the <a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.event/-event-manager/index.html">EventManager</a> that is supposed to be adapted</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="event-waiter.html">eventWaiter</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">eventWaiter</span><span class="symbol">: </span><a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.core/-client-event-waiter/index.html"><span class="identifier">ClientEventWaiter</span></a></code>
+<p>An <a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.core/-client-event-waiter/index.html">ClientEventWaiter</a> based on this <a href="https://ci.dv8tion.net/job/JDA4-Alpha/javadoc/net/dv8tion/jda/api/hooks/IEventManager.html">IEventManager</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3>Functions</h3>
 <table>
 <tbody>
@@ -36,6 +50,15 @@
 </td>
 <td>
 <code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">register</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.event.JDAEventManagerAdapter$register(kotlin.Any)/listener">listener</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="to-event-manager.html">toEventManager</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toEventManager</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.event/-event-manager/index.html"><span class="identifier">EventManager</span></a></code>
+<p>Converts this <a href="https://ci.dv8tion.net/job/JDA4-Alpha/javadoc/net/dv8tion/jda/api/hooks/IEventManager.html">IEventManager</a> to an <a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.event/-event-manager/index.html">EventManager</a>.</p>
+</td>
 </tr>
 <tr>
 <td>

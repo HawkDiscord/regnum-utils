@@ -1,16 +1,20 @@
 import com.jfrog.bintray.gradle.BintrayExtension
+import groovy.lang.GroovyObject
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jfrog.gradle.plugin.artifactory.dsl.PublisherConfig
+import org.jfrog.gradle.plugin.artifactory.dsl.ResolverConfig
 
 plugins {
     id("org.jetbrains.dokka") version "0.9.18"
     id("com.jfrog.bintray") version "1.8.4"
+    id("com.jfrog.artifactory") version "4.9.6"
     kotlin("jvm") version "1.3.11"
     `maven-publish`
     java
 }
 
 group = "me.schlaubi.regnumutils"
-version = "1.0-SNAPSHOT"
+version = "1.0.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -47,6 +51,24 @@ bintray {
         version(delegateClosureOf<BintrayExtension.VersionConfig> {
             name = project.version as String
         })
+    })
+}
+
+artifactory {
+    setContextUrl("https://oss.jfrog.org/artifactory")
+    publish(delegateClosureOf<PublisherConfig> {
+        repository(delegateClosureOf<GroovyObject> {
+            setProperty("repoKey", "oss-snapshot-local")
+            setProperty("username", System.getenv("BINTRAY_USER"))
+            setProperty("password", System.getenv("BINTRAY_KEY"))
+            setProperty("maven", true)
+        })
+        defaults(delegateClosureOf<GroovyObject> {
+            invokeMethod("publications", "mavenJava")
+        })
+    })
+    resolve(delegateClosureOf<ResolverConfig> {
+        setProperty("repoKey", "repo")
     })
 }
 
