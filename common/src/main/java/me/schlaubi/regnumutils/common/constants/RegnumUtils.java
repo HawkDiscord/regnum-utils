@@ -22,7 +22,7 @@ package me.schlaubi.regnumutils.common.constants;
 /**
  * Some information about the Regnum utils library.
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused"})
 public class RegnumUtils {
 
     public static final String AUTHOR = "Michael \"Schlaubi\" Rittmeister";

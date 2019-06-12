@@ -25,7 +25,9 @@ import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.ThreadLocalRandom
 import java.util.concurrent.TimeUnit
+import java.util.function.BiConsumer
 import java.util.function.Consumer
+import java.util.function.Function
 
 /**
  * Animates the bots presence according to the specified [interval] and [TimeUnit][unit].
@@ -39,20 +41,12 @@ import java.util.function.Consumer
 class GameAnimator internal constructor(
     private val scheduler: ScheduledExecutorService,
     private val games: List<GameAnimator.Game>,
-    private val applier: Consumer<GameAnimator.Game>,
+    private val applier: BiConsumer<GameAnimator.Game, Function<String, String>>,
     private val interval: Long = 30,
     private val initialDelay: Long = 0,
-    private val unit: TimeUnit = TimeUnit.SECONDS
+    private val unit: TimeUnit = TimeUnit.SECONDS,
+    private val transform: Function<String, String>
 ) {
-
-    companion object {
-        /**
-         * Creates a new [GameAnimatorBuilder].
-         * @return the [GameAnimatorBuilder]
-         */
-        @JvmStatic
-        fun builder() = GameAnimatorBuilder()
-    }
 
     /**
      * Starts the animator.
@@ -66,6 +60,15 @@ class GameAnimator internal constructor(
      */
     fun stop(): List<Runnable> = scheduler.shutdownNow()
 
-    private fun animate() = applier.accept(games[ThreadLocalRandom.current().nextInt(games.size - 1)])
+    private fun animate() = applier.accept(games[ThreadLocalRandom.current().nextInt(games.size - 1)], transform)
+
+    companion object {
+        /**
+         * Creates a new [GameAnimatorBuilder].
+         * @return the [GameAnimatorBuilder]
+         */
+        @JvmStatic
+        fun builder() = GameAnimatorBuilder()
+    }
 }
 

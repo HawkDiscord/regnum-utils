@@ -27,19 +27,22 @@ import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.OnlineStatus
 import net.dv8tion.jda.api.entities.Activity
 import net.dv8tion.jda.api.sharding.ShardManager
+import java.util.function.Function
 
 /**
  * The [JDA] instance used by the [cc.hawkbot.regnum.client.core.discord.ShardManager].
  * @see JDAShardManager
  */
 val cc.hawkbot.regnum.client.core.discord.ShardManager.jda: ShardManager
-    get() = (this as JDAShardManager).jda
+    get() = (this as JDAShardManager).jda // We know that its an JDAShardManager because this whole lib is for the JDA
 
 /**
- * Converts a [GameAnimator.Game] to an [Activity] object which can be used for changing a [jda presence][net.dv8tion.jda.api.managers.Presence]
+ * Converts a [GameAnimator.Game] to an [Activity] object which can be used for changing a [jda presence][net.dv8tion.jda.api.managers.Presence].
+ * @param transform a function that converts the games content if there are placeholders init
  * @see Activity
  */
-fun GameAnimator.Game.toActivity() = Activity.of(Activity.ActivityType.fromKey(type), content)
+fun GameAnimator.Game.toActivity(transform: (String) -> String = { it }) =
+    Activity.of(Activity.ActivityType.fromKey(type), transform(content))
 
 /**
  * Converts a [GameAnimator.Game] to an [OnlineStatus] object which can be used for changing a [jda presence][net.dv8tion.jda.api.managers.Presence]
@@ -50,16 +53,23 @@ val GameAnimator.Game.onlineStatus: OnlineStatus
 
 /**
  * Applies a [GameAnimator.Game] to a a [jda presence][net.dv8tion.jda.api.managers.Presence]
+ * @param transform a function that converts the games content if there are placeholders init
  * @see net.dv8tion.jda.api.managers.Presence
  */
-fun JDA.applyGame(game: GameAnimator.Game) = presence.setPresence(game.onlineStatus, game.toActivity())
+fun JDA.applyGame(game: GameAnimator.Game, transform: (String) -> String = { it }) =
+    presence.setPresence(game.onlineStatus, game.toActivity(transform))
 
 /**
  * Applies a [GameAnimator.Game] to a a [jda presence][net.dv8tion.jda.api.managers.Presence]
+ * @param transform a function that converts the games content if there are placeholders init
  * @see net.dv8tion.jda.api.managers.Presence
  */
-fun ShardManager.applyGame(game: GameAnimator.Game) = setPresence(game.onlineStatus, game.toActivity())
+fun ShardManager.applyGame(game: GameAnimator.Game, transform: (String) -> String = { it }) =
+    setPresence(game.onlineStatus, game.toActivity(transform))
 
+/**
+ * Wrapper for extension functions.
+ */
 object JDAExtensions {
 
     /**
@@ -84,11 +94,17 @@ object JDAExtensions {
      * @see JDA.applyGame
      */
     @JvmStatic
-    fun applyGame(jda: JDA, game: GameAnimator.Game) = jda.applyGame(game)
+    fun applyGame(jda: JDA, game: GameAnimator.Game, transform: Function<String, String> = Function { it }) =
+        jda.applyGame(
+            game
+        ) { transform.apply(it) }
 
     /**
      * @see ShardManager.applyGame
      */
     @JvmStatic
-    fun applyGame(jda: ShardManager, game: GameAnimator.Game) = jda.applyGame(game)
+    fun applyGame(
+        jda: ShardManager, game: GameAnimator.Game, transform: Function<String, String> = Function { it }
+    ) =
+        jda.applyGame(game) { transform.apply(it) }
 }

@@ -80,7 +80,7 @@ class AnnotatedEventManager(executor: ExecutorService = Executors.newCachedThrea
 /**
  * Port of [ListenerAdapter] to [EventListener].
  */
-class RegnumListenerAdapter : ListenerAdapter(), EventListener {
+open class RegnumListenerAdapter : ListenerAdapter(), EventListener {
     @Suppress("RedundantOverride")
     override fun onEvent(event: GenericEvent) {
         super.onEvent(event)
@@ -90,7 +90,7 @@ class RegnumListenerAdapter : ListenerAdapter(), EventListener {
 /**
  * Port of [net.dv8tion.jda.api.hooks.ListenerAdapter] to [cc.hawkbot.regnum.client.event.impl.EventListener].
  */
-class JDAListenerAdapter : net.dv8tion.jda.api.hooks.ListenerAdapter(), cc.hawkbot.regnum.client.event.impl.EventListener {
+open class JDAListenerAdapter : net.dv8tion.jda.api.hooks.ListenerAdapter(), cc.hawkbot.regnum.client.event.impl.EventListener {
     override fun onEvent(event: Any) {
         if (event is GenericEvent) {
             super.onGenericEvent(event)

@@ -36,7 +36,9 @@ import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 /**
  * Builder for {@link GameAnimator}.
@@ -50,10 +52,11 @@ public class GameAnimatorBuilder {
 
     private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor(new DefaultThreadFactory("GameAnimator"));
     private List<cc.hawkbot.regnum.client.core.discord.GameAnimator.Game> games = new ArrayList<>();
-    private Consumer<cc.hawkbot.regnum.client.core.discord.GameAnimator.Game> applier;
+    private BiConsumer<cc.hawkbot.regnum.client.core.discord.GameAnimator.Game, Function<String, String>> applier;
     private long interval = 30;
     private long initialDelay = 0;
     private TimeUnit unit = TimeUnit.SECONDS;
+    private Function<String, String> transform = it -> it;
 
     /**
      * Returns the currently selected scheduler.
@@ -128,8 +131,7 @@ public class GameAnimatorBuilder {
      *
      * @return the {@link Consumer}
      */
-    @NotNull
-    public Consumer<cc.hawkbot.regnum.client.core.discord.GameAnimator.Game> getApplier() {
+    public BiConsumer<cc.hawkbot.regnum.client.core.discord.GameAnimator.Game, Function<String, String>> getApplier() {
         return applier;
     }
 
@@ -140,7 +142,7 @@ public class GameAnimatorBuilder {
      * @return the {@link GameAnimatorBuilder}
      */
     @NotNull
-    public GameAnimatorBuilder setApplier(@NotNull Consumer<cc.hawkbot.regnum.client.core.discord.GameAnimator.Game> applier) {
+    public GameAnimatorBuilder setApplier(BiConsumer<cc.hawkbot.regnum.client.core.discord.GameAnimator.Game, Function<String, String>> applier) {
         this.applier = applier;
         return this;
     }
@@ -158,6 +160,7 @@ public class GameAnimatorBuilder {
      * Sets the interval in which the games are going to be changed.
      *
      * @param interval the interval as a long
+     * @throws IllegalArgumentException when the interval is not grater than 0
      * @return the {@link GameAnimatorBuilder}
      */
     @NotNull
@@ -172,6 +175,7 @@ public class GameAnimatorBuilder {
      *
      * @param interval the interval
      * @param unit     the {@link TimeUnit} or {@code null} if you don't want to change it
+     * @throws IllegalArgumentException when the interval is not grater than 0
      * @return the {@link GameAnimatorBuilder}
      */
     @NotNull
@@ -196,6 +200,7 @@ public class GameAnimatorBuilder {
      * Sets the amount of time till the first animation
      *
      * @param initialDelay the amount of time as a long
+     * @throws IllegalArgumentException when the initialDelay is negative
      * @return the {@link GameAnimatorBuilder}
      */
     @NotNull
@@ -210,6 +215,7 @@ public class GameAnimatorBuilder {
      *
      * @param initialDelay the amount of time as a long
      * @param unit         the {@link TimeUnit} or {@code null} if you don't want to change it
+     * @throws IllegalArgumentException when the initialDelay is negative
      * @return the {@link GameAnimatorBuilder}
      */
     @NotNull
@@ -253,11 +259,11 @@ public class GameAnimatorBuilder {
      *
      * @param jda the {@link JDA} instance
      * @return the {@link GameAnimatorBuilder}
-     * @see GameAnimatorBuilder#setApplier(Consumer)
+     * @see GameAnimatorBuilder#setApplier(BiConsumer)
      */
     @NotNull
     public GameAnimatorBuilder setJDA(JDA jda) {
-        return setApplier((game) -> JDAExtensions.applyGame(jda, game));
+        return setApplier((game, transform) -> JDAExtensions.applyGame(jda, game, transform));
     }
 
     /**
@@ -265,11 +271,31 @@ public class GameAnimatorBuilder {
      *
      * @param shardManager the {@link ShardManager} instance
      * @return the {@link GameAnimatorBuilder}
-     * @see GameAnimatorBuilder#setApplier(Consumer)
+     * @see GameAnimatorBuilder#setApplier(BiConsumer)
      */
     @NotNull
     public GameAnimatorBuilder setShardManager(ShardManager shardManager) {
-        return setApplier((game) -> JDAExtensions.applyGame(shardManager, game));
+        return setApplier((game, transform) -> JDAExtensions.applyGame(shardManager, game, transform));
+    }
+
+    /**
+     * Returns the function that transfroms every game before applying it
+     * @return the {@link Function}
+     */
+    @NotNull
+    public Function<String, String> getTransform() {
+        return transform;
+    }
+
+    /**
+     * Sets the function that transfroms every game before applying it
+     * @param transform the {@link Function}
+     * @return the {@link GameAnimatorBuilder}
+     */
+    @NotNull
+    public GameAnimatorBuilder setTransform(Function<String, String> transform) {
+        this.transform = transform;
+        return this;
     }
 
     /**
@@ -279,13 +305,15 @@ public class GameAnimatorBuilder {
      */
     @NotNull
     public GameAnimator build() {
+        Preconditions.checkState(games.size() >= 2, "You have to register at least two games!");
         return new GameAnimator(
                 scheduler,
                 ImmutableList.copyOf(games),
                 applier,
                 interval,
                 initialDelay,
-                unit
+                unit,
+                transform
         );
     }
 }
