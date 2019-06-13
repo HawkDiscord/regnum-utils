@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>GenericMessageCacheEvent - common</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">common</a>&nbsp;/&nbsp;<a href="../index.html">me.schlaubi.regnumutils.common.events</a>&nbsp;/&nbsp;<a href="./index.html">GenericMessageCacheEvent</a><br/>
+<br/>
+<h1>GenericMessageCacheEvent</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">GenericMessageCacheEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://ci.dv8tion.net/job/JDA4-Alpha/javadoc/net/dv8tion/jda/api/events/message/guild/GenericGuildMessageEvent.html"><span class="identifier">GenericGuildMessageEvent</span></a></code>
+<p>Base class for events fired by the <a href="../../me.schlaubi.regnumutils.common.cache/-message-cache/index.html">me.schlaubi.regnumutils.common.cache.MessageCache</a>.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="old-message.html">oldMessage</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">oldMessage</span><span class="symbol">: </span><span class="identifier">Message</span><span class="symbol">?</span></code>
+<p>the cached version of the message</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-guild-message-delete-event/index.html">GuildMessageDeleteEvent</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">GuildMessageDeleteEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">GenericMessageCacheEvent</span></a></code>
+<p>Event that represents a message deletion on a guild.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-guild-message-update-event/index.html">GuildMessageUpdateEvent</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">GuildMessageUpdateEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">GenericMessageCacheEvent</span></a></code>
+<p>Event that represents a message edit on a guild.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -14,7 +14,7 @@ plugins {
 }
 
 group = "me.schlaubi.regnumutils"
-version = "1.1.0-SNAPSHOT"
+version = "1.0.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -22,18 +22,9 @@ repositories {
 }
 
 dependencies {
-    compile("net.dv8tion:JDA:4.ALPHA.0_103") {
-        exclude(module = "opus-java")
-    }
 
-    compile("cc.hawkbot.regnum", "client", "1.0.0")
+    compile(project(":common"))
 
-    compile(kotlin("stdlib-jdk8"))
-
-    //Tests
-    testCompile("org.slf4j", "slf4j-simple", "1.7.26")
-    testCompile("junit", "junit", "4.12")
-    testCompile("org.mockito:mockito-core:2.28.2")
 }
 
 val sourcesJar by tasks.creating(Jar::class)
@@ -44,7 +35,7 @@ bintray {
     key = System.getenv("BINTRAY_KEY")
     pkg(delegateClosureOf<BintrayExtension.PackageConfig> {
         repo = "maven"
-        name = "regnum-utils-common"
+        name = "regnum-utils-command"
         userOrg = "hawk"
         setLicenses("GPL-3.0")
         vcsUrl = "https://github.com/HawkDiscord/regnum-utils.git"
@@ -113,7 +104,7 @@ tasks {
         externalDocumentationLink {
             url = uri("https://ci.dv8tion.net/job/JDA4-Alpha/javadoc/").toURL()
             packageListUrl =
-                uri("https://gist.githubusercontent.com/DRSchlaubi/3d1d0aaa5c01963dcd4d0149c841c896/raw/22141759fbab1e38fd2381c3e4f97616ecb43fc8/package-list").toURL()
+                    uri("https://gist.githubusercontent.com/DRSchlaubi/3d1d0aaa5c01963dcd4d0149c841c896/raw/22141759fbab1e38fd2381c3e4f97616ecb43fc8/package-list").toURL()
         }
     }
 
@@ -127,6 +118,7 @@ tasks {
         from(dokka)
     }
 }
+
 
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_12

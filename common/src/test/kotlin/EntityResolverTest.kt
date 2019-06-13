@@ -41,7 +41,9 @@ class EntityResolverTest {
     private lateinit var jda: JDA
     private lateinit var guild: Guild
 
-    @Rule fun rule(): MockitoRule = MockitoJUnit.rule()
+    @Suppress("unused")
+    val rule: MockitoRule = MockitoJUnit.rule()
+        @Rule get() = field
 
     /**
      * Initializes the mocks.

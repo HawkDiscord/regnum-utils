@@ -21,6 +21,9 @@ package me.schlaubi.regnumutils.common.cache
 
 import net.dv8tion.jda.api.entities.Message
 
+/**
+ * @see MessageCache.activate
+ */
 class MemoryMessageCache private constructor() : MessageCache {
 
     private val storage = mutableMapOf<Long, Message>()
