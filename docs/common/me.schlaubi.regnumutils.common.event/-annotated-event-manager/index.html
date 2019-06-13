@@ -1,0 +1,88 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AnnotatedEventManager - common</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">common</a>&nbsp;/&nbsp;<a href="../index.html">me.schlaubi.regnumutils.common.event</a>&nbsp;/&nbsp;<a href="./index.html">AnnotatedEventManager</a><br/>
+<br/>
+<h1>AnnotatedEventManager</h1>
+<code><span class="keyword">class </span><span class="identifier">AnnotatedEventManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-j-d-a-event-manager-adapter/index.html"><span class="identifier">JDAEventManagerAdapter</span></a></code>
+<p>Implementation of <a href="https://ci.dv8tion.net/job/JDA4-Alpha/javadoc/net/dv8tion/jda/api/hooks/IEventManager.html">IEventManager</a> based on <a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.event.impl/-annotated-event-manger/index.html">AnnotatedEventManger</a>.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="https://ci.dv8tion.net/job/JDA4-Alpha/javadoc/net/dv8tion/jda/api/hooks/IEventManager.html">IEventManager</a></p>
+<p><a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.event.impl/-annotated-event-manger/index.html">AnnotatedEventManger</a></p>
+</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">AnnotatedEventManager</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.event.AnnotatedEventManager$<init>(java.util.concurrent.ExecutorService)/executor">executor</span><span class="symbol">:</span>&nbsp;<span class="identifier">ExecutorService</span>&nbsp;<span class="symbol">=</span>&nbsp;Executors.newCachedThreadPool(DefaultThreadFactory("EventListeningPool"))<span class="symbol">)</span></code>
+<p>Implementation of <a href="https://ci.dv8tion.net/job/JDA4-Alpha/javadoc/net/dv8tion/jda/api/hooks/IEventManager.html">IEventManager</a> based on <a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.event.impl/-annotated-event-manger/index.html">AnnotatedEventManger</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-j-d-a-event-manager-adapter/event-waiter.html">eventWaiter</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">eventWaiter</span><span class="symbol">: </span><a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.core/-client-event-waiter/index.html"><span class="identifier">ClientEventWaiter</span></a></code>
+<p>An <a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.core/-client-event-waiter/index.html">ClientEventWaiter</a> based on this <a href="https://ci.dv8tion.net/job/JDA4-Alpha/javadoc/net/dv8tion/jda/api/hooks/IEventManager.html">IEventManager</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-j-d-a-event-manager-adapter/get-registered-listeners.html">getRegisteredListeners</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getRegisteredListeners</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-j-d-a-event-manager-adapter/handle.html">handle</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">handle</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.event.JDAEventManagerAdapter$handle(net.dv8tion.jda.api.events.GenericEvent)/event">event</span><span class="symbol">:</span>&nbsp;<span class="identifier">GenericEvent</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-j-d-a-event-manager-adapter/register.html">register</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">register</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.event.JDAEventManagerAdapter$register(kotlin.Any)/listener">listener</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-j-d-a-event-manager-adapter/to-event-manager.html">toEventManager</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toEventManager</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.event/-event-manager/index.html"><span class="identifier">EventManager</span></a></code>
+<p>Converts this <a href="https://ci.dv8tion.net/job/JDA4-Alpha/javadoc/net/dv8tion/jda/api/hooks/IEventManager.html">IEventManager</a> to an <a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.event/-event-manager/index.html">EventManager</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-j-d-a-event-manager-adapter/unregister.html">unregister</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">unregister</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.event.JDAEventManagerAdapter$unregister(kotlin.Any)/listener">listener</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

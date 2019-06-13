@@ -1,0 +1,184 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>GameAnimatorBuilder - common</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">common</a>&nbsp;/&nbsp;<a href="../index.html">me.schlaubi.regnumutils.common.builder</a>&nbsp;/&nbsp;<a href="./index.html">GameAnimatorBuilder</a><br/>
+<br/>
+<h1>GameAnimatorBuilder</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">GameAnimatorBuilder</span></code>
+<p>Builder for <code><a href="../../me.schlaubi.regnumutils.common/-game-animator/index.html">GameAnimator</a></code>.</p>
+<p><strong>See Also</strong><br/>
+<a href="../../me.schlaubi.regnumutils.common/-game-animator/index.html">GameAnimator</a><a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.core.discord/-game-animator/-game/index.html">cc.hawkbot.regnum.client.core.discord.GameAnimator.Game</a></p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">GameAnimatorBuilder</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>Builder for <code><a href="../../me.schlaubi.regnumutils.common/-game-animator/index.html">GameAnimator</a></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="add-games.html">addGames</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addGames</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="me.schlaubi.regnumutils.common.builder.GameAnimatorBuilder$addGames(kotlin.Array((cc.hawkbot.regnum.client.core.discord.GameAnimator.Game)))/games">games</span><span class="symbol">:</span>&nbsp;<a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.core.discord/-game-animator/-game/index.html"><span class="identifier">Game</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">GameAnimatorBuilder</span></a></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addGames</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.builder.GameAnimatorBuilder$addGames(kotlin.collections.MutableCollection((cc.hawkbot.regnum.client.core.discord.GameAnimator.Game)))/games">games</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-collection/index.html"><span class="identifier">MutableCollection</span></a><span class="symbol">&lt;</span><a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.core.discord/-game-animator/-game/index.html"><span class="identifier">Game</span></a><span class="symbol">!</span><span class="symbol">&gt;</span><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">GameAnimatorBuilder</span></a></code>
+<p>Adds all specified <code><a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.core.discord/-game-animator/-game/index.html">cc.hawkbot.regnum.client.core.discord.GameAnimator.Game</a></code>s.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="build.html">build</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">build</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../me.schlaubi.regnumutils.common/-game-animator/index.html"><span class="identifier">GameAnimator</span></a></code>
+<p>Builds the <code><a href="../../me.schlaubi.regnumutils.common/-game-animator/index.html">GameAnimator</a></code></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-applier.html">getApplier</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getApplier</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Consumer</span><span class="symbol">&lt;</span><a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.core.discord/-game-animator/-game/index.html"><span class="identifier">Game</span></a><span class="symbol">!</span><span class="symbol">&gt;</span></code>
+<p>Returns the currently set function with applies the games.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-games.html">getGames</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getGames</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.core.discord/-game-animator/-game/index.html"><span class="identifier">Game</span></a><span class="symbol">!</span><span class="symbol">&gt;</span></code>
+<p>Returns a list containing all <code><a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.core.discord/-game-animator/-game/index.html">cc.hawkbot.regnum.client.core.discord.GameAnimator.Game</a></code>s.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-initial-delay.html">getInitialDelay</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getInitialDelay</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code>
+<p>Returns the amount of time till the first animation.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-interval.html">getInterval</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getInterval</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code>
+<p>Returns the interval in which the games are going to be changed.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-scheduler.html">getScheduler</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getScheduler</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ScheduledExecutorService</span></code>
+<p>Returns the currently selected scheduler.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-time-unit.html">getTimeUnit</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getTimeUnit</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">TimeUnit</span></code>
+<p>Returns the <code><a href="#">TimeUnit</a></code> for the interval and the initial delay.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-applier.html">setApplier</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setApplier</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.builder.GameAnimatorBuilder$setApplier(java.util.function.Consumer((cc.hawkbot.regnum.client.core.discord.GameAnimator.Game)))/applier">applier</span><span class="symbol">:</span>&nbsp;<span class="identifier">Consumer</span><span class="symbol">&lt;</span><a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.core.discord/-game-animator/-game/index.html"><span class="identifier">Game</span></a><span class="symbol">!</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">GameAnimatorBuilder</span></a></code>
+<p>Sets the function that is use to apply the games</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-games.html">setGames</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setGames</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.builder.GameAnimatorBuilder$setGames(kotlin.collections.MutableList((cc.hawkbot.regnum.client.core.discord.GameAnimator.Game)))/games">games</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.core.discord/-game-animator/-game/index.html"><span class="identifier">Game</span></a><span class="symbol">!</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">GameAnimatorBuilder</span></a></code>
+<p>Sets the <code><a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.core.discord/-game-animator/-game/index.html">cc.hawkbot.regnum.client.core.discord.GameAnimator.Game</a></code>s that will be animated.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-initial-delay.html">setInitialDelay</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setInitialDelay</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.builder.GameAnimatorBuilder$setInitialDelay(kotlin.Long)/initialDelay">initialDelay</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">GameAnimatorBuilder</span></a></code>
+<p>Sets the amount of time till the first animation</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setInitialDelay</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.builder.GameAnimatorBuilder$setInitialDelay(kotlin.Long, java.util.concurrent.TimeUnit)/initialDelay">initialDelay</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.common.builder.GameAnimatorBuilder$setInitialDelay(kotlin.Long, java.util.concurrent.TimeUnit)/unit">unit</span><span class="symbol">:</span>&nbsp;<span class="identifier">TimeUnit</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">GameAnimatorBuilder</span></a></code>
+<p>Sets the animation interval and its unit.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-interval.html">setInterval</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setInterval</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.builder.GameAnimatorBuilder$setInterval(kotlin.Long)/interval">interval</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">GameAnimatorBuilder</span></a></code>
+<p>Sets the interval in which the games are going to be changed.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setInterval</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.builder.GameAnimatorBuilder$setInterval(kotlin.Long, java.util.concurrent.TimeUnit)/interval">interval</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.common.builder.GameAnimatorBuilder$setInterval(kotlin.Long, java.util.concurrent.TimeUnit)/unit">unit</span><span class="symbol">:</span>&nbsp;<span class="identifier">TimeUnit</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">GameAnimatorBuilder</span></a></code>
+<p>Sets the animation interval and its unit.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-j-d-a.html">setJDA</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setJDA</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.builder.GameAnimatorBuilder$setJDA(net.dv8tion.jda.api.JDA)/jda">jda</span><span class="symbol">:</span>&nbsp;<span class="identifier">JDA</span><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">GameAnimatorBuilder</span></a></code>
+<p>Uses an <code><a href="#">JDA</a></code> instance for the Applier.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-scheduler.html">setScheduler</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setScheduler</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.builder.GameAnimatorBuilder$setScheduler(java.util.concurrent.ScheduledExecutorService)/scheduler">scheduler</span><span class="symbol">:</span>&nbsp;<span class="identifier">ScheduledExecutorService</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">GameAnimatorBuilder</span></a></code>
+<p>Sets the scheduler used to animate the games.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-shard-manager.html">setShardManager</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setShardManager</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.builder.GameAnimatorBuilder$setShardManager(net.dv8tion.jda.api.sharding.ShardManager)/shardManager">shardManager</span><span class="symbol">:</span>&nbsp;<span class="identifier">ShardManager</span><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">GameAnimatorBuilder</span></a></code>
+<p>Uses an <code><a href="#">ShardManager</a></code> instance for the Applier.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-time-unit.html">setTimeUnit</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setTimeUnit</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.builder.GameAnimatorBuilder$setTimeUnit(java.util.concurrent.TimeUnit)/unit">unit</span><span class="symbol">:</span>&nbsp;<span class="identifier">TimeUnit</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">GameAnimatorBuilder</span></a></code>
+<p>Sets the <code><a href="#">TimeUnit</a></code> for the interval and the initial delay.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

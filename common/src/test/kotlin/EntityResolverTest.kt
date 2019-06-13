@@ -9,6 +9,7 @@ import org.junit.runner.RunWith
 import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnit
 import org.mockito.junit.MockitoJUnitRunner
+import org.mockito.junit.MockitoRule
 
 /*
  * Regnum - A Discord bot clustering system made for Hawk
@@ -29,23 +30,33 @@ import org.mockito.junit.MockitoJUnitRunner
  * along with this program.  If not, see https://www.gnu.org/licenses/.
  */
 
+/**
+ * Tests if the [EntityResolver] calls the methods of the specified [Guild] and [JDA] objects correctly.
+ */
 @RunWith(MockitoJUnitRunner::class)
 class EntityResolverTest {
 
     private val log = Logger.getLogger()
 
-    val rule = MockitoJUnit.rule()
+    private lateinit var jda: JDA
+    private lateinit var guild: Guild
+
+    @Suppress("unused")
+    val rule: MockitoRule = MockitoJUnit.rule()
         @Rule get() = field
 
-    lateinit var jda: JDA
-    lateinit var guild: Guild
-
+    /**
+     * Initializes the mocks.
+     */
     @Before
     fun before() {
         jda = Mockito.mock(JDA::class.java)
         guild = Mockito.mock(Guild::class.java)
     }
 
+    /**
+     * Runs the test.
+     */
     @Test
     fun test() {
         user()

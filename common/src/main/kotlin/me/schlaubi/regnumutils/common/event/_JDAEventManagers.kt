@@ -21,6 +21,7 @@
 
 package me.schlaubi.regnumutils.common.event
 
+import cc.hawkbot.regnum.client.core.ClientEventWaiter
 import cc.hawkbot.regnum.client.event.EventManager
 import cc.hawkbot.regnum.client.event.ListenerAdapter
 import net.dv8tion.jda.api.hooks.IEventManager
@@ -40,6 +41,11 @@ sealed class JDAEventManagerAdapter(
     private val manager: EventManager
 ) : IEventManager {
 
+    /**
+     * An [ClientEventWaiter] based on this [IEventManager].
+     */
+    val eventWaiter by lazy { ClientEventWaiter(toEventManager()) }
+
     override fun handle(event: GenericEvent) = manager.fireEvent(event)
 
     override fun register(listener: Any) = manager.register(listener)
@@ -47,6 +53,12 @@ sealed class JDAEventManagerAdapter(
     override fun getRegisteredListeners() = manager.registeredListeners
 
     override fun unregister(listener: Any) = manager.unregister(listener)
+
+    /**
+     * Converts this [IEventManager] to an [EventManager].
+     */
+    fun toEventManager(): EventManager = manager
+
 }
 
 /**
@@ -68,7 +80,7 @@ class AnnotatedEventManager(executor: ExecutorService = Executors.newCachedThrea
 /**
  * Port of [ListenerAdapter] to [EventListener].
  */
-class RegnumListenerAdapter : ListenerAdapter(), EventListener {
+open class RegnumListenerAdapter : ListenerAdapter(), EventListener {
     @Suppress("RedundantOverride")
     override fun onEvent(event: GenericEvent) {
         super.onEvent(event)
@@ -78,7 +90,7 @@ class RegnumListenerAdapter : ListenerAdapter(), EventListener {
 /**
  * Port of [net.dv8tion.jda.api.hooks.ListenerAdapter] to [cc.hawkbot.regnum.client.event.impl.EventListener].
  */
-class JDAListenerAdapter : net.dv8tion.jda.api.hooks.ListenerAdapter(), cc.hawkbot.regnum.client.event.impl.EventListener {
+open class JDAListenerAdapter : net.dv8tion.jda.api.hooks.ListenerAdapter(), cc.hawkbot.regnum.client.event.impl.EventListener {
     override fun onEvent(event: Any) {
         if (event is GenericEvent) {
             super.onGenericEvent(event)
