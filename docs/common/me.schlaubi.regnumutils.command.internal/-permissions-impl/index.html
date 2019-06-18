@@ -1,0 +1,75 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PermissionsImpl - common</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">common</a>&nbsp;/&nbsp;<a href="../index.html">me.schlaubi.regnumutils.command.internal</a>&nbsp;/&nbsp;<a href="./index.html">PermissionsImpl</a><br/>
+<br/>
+<h1>PermissionsImpl</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">PermissionsImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../me.schlaubi.regnumutils.command.spi.permission/-permissions/index.html"><span class="identifier">Permissions</span></a></code> <a href="https://github.com/HawkDiscord/regnum-utils/tree/master/command/src/main/kotlin/me/schlaubi/regnumutils/command/internal/PermissionsImpl.kt#L25">(source)</a>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">PermissionsImpl</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.internal.PermissionsImpl$<init>(kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, net.dv8tion.jda.api.Permission)/public">public</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.internal.PermissionsImpl$<init>(kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, net.dv8tion.jda.api.Permission)/ownerExclusive">ownerExclusive</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.internal.PermissionsImpl$<init>(kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, net.dv8tion.jda.api.Permission)/serverOwnerExclusive">serverOwnerExclusive</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.internal.PermissionsImpl$<init>(kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, net.dv8tion.jda.api.Permission)/node">node</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.internal.PermissionsImpl$<init>(kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, net.dv8tion.jda.api.Permission)/discordPermission">discordPermission</span><span class="symbol">:</span>&nbsp;<span class="identifier">Permission</span><span class="symbol">?</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="discord-permission.html">discordPermission</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">discordPermission</span><span class="symbol">: </span><span class="identifier">Permission</span><span class="symbol">?</span></code>
+<p>Only people with that <a href="#">Permission</a> can execute the command.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="node.html">node</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">node</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>Some permission node.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="owner-exclusive.html">ownerExclusive</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">ownerExclusive</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Only the bot owner can execute the command.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="public.html">public</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">public</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Everyone can execute the command.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="server-owner-exclusive.html">serverOwnerExclusive</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">serverOwnerExclusive</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Only someone with <a href="#">Permission.MANAGE_SERVER</a> or <a href="#">Permission.ADMINISTRATOR</a> can execute that command.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

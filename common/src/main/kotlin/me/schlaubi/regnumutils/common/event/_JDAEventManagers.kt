@@ -24,12 +24,12 @@ package me.schlaubi.regnumutils.common.event
 import cc.hawkbot.regnum.client.core.ClientEventWaiter
 import cc.hawkbot.regnum.client.event.EventManager
 import cc.hawkbot.regnum.client.event.ListenerAdapter
-import net.dv8tion.jda.api.hooks.IEventManager
-import cc.hawkbot.regnum.client.event.impl.InterfacedEventManager
 import cc.hawkbot.regnum.client.event.impl.AnnotatedEventManger
+import cc.hawkbot.regnum.client.event.impl.InterfacedEventManager
 import cc.hawkbot.regnum.util.DefaultThreadFactory
 import net.dv8tion.jda.api.events.GenericEvent
 import net.dv8tion.jda.api.hooks.EventListener
+import net.dv8tion.jda.api.hooks.IEventManager
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -57,6 +57,7 @@ sealed class JDAEventManagerAdapter(
     /**
      * Converts this [IEventManager] to an [EventManager].
      */
+    @Suppress("MemberVisibilityCanBePrivate")
     fun toEventManager(): EventManager = manager
 
 }

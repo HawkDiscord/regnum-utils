@@ -14,7 +14,7 @@ plugins {
 }
 
 group = "me.schlaubi.regnumutils"
-version = "1.1.0-SNAPSHOT"
+version = "1.2.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -87,16 +87,20 @@ publishing {
 
 tasks {
     dokka {
-        moduleName = "common"
+        moduleName = "command"
         outputDirectory = "${project.parent!!.projectDir}/docs"
         // Oracle broke it
         noJdkLink = true
         reportUndocumented = true
         impliedPlatforms = mutableListOf("JVM")
-        linkMapping {
-            dir = "./"
-            url = "https://github.com/HawkDiscord/regnum-utils/tree/master"
-            suffix = "#L"
+        sourceDirs = files("src/main/kotlin", "src/main/java")
+        sourceDirs.forEach {
+            val relativePath = rootDir.toPath().relativize(it.toPath()).toString()
+            linkMapping {
+                dir = it.absolutePath
+                url = "https://github.com/HawkDiscord/regnum-utils/tree/master/$relativePath"
+                suffix = "#L"
+            }
         }
         externalDocumentationLink {
             url = uri("https://www.slf4j.org/api/").toURL()

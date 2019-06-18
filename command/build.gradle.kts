@@ -25,6 +25,11 @@ dependencies {
 
     compile(project(":common"))
 
+    //Tests
+    testCompile("org.slf4j", "slf4j-simple", "1.7.26")
+    testCompile("junit", "junit", "4.12")
+    testCompile("org.mockito:mockito-core:2.28.2")
+
 }
 
 val sourcesJar by tasks.creating(Jar::class)
@@ -84,10 +89,14 @@ tasks {
         noJdkLink = true
         reportUndocumented = true
         impliedPlatforms = mutableListOf("JVM")
-        linkMapping {
-            dir = "./"
-            url = "https://github.com/HawkDiscord/regnum-utils/tree/master"
-            suffix = "#L"
+        sourceDirs = files("src/main/kotlin", "src/main/java")
+        sourceDirs.forEach {
+            val relativePath = rootDir.toPath().relativize(it.toPath()).toString()
+            linkMapping {
+                dir = it.absolutePath
+                url = "https://github.com/HawkDiscord/regnum-utils/tree/master/$relativePath"
+                suffix = "#L"
+            }
         }
         externalDocumentationLink {
             url = uri("https://www.slf4j.org/api/").toURL()

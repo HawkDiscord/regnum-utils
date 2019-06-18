@@ -1,0 +1,179 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MessageCache - command</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">command</a>&nbsp;/&nbsp;<a href="../index.html">me.schlaubi.regnumutils.common.cache</a>&nbsp;/&nbsp;<a href="./index.html">MessageCache</a><br/>
+<br/>
+<h1>MessageCache</h1>
+<code><span class="keyword">interface </span><span class="identifier">MessageCache</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html"><span class="identifier">MutableMap</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">Message</span><span class="symbol">&gt;</span></code> <a href="https://github.com/HawkDiscord/regnum-utils/tree/master/common/src/main/kotlin/me/schlaubi/regnumutils/common/cache/MessageCache.kt#L39">(source)</a>
+<p>Cache for <a href="#">messages</a> in order to get the old content in <code>MESSAGE_UPDATE</code> and <code>MESSAGE_DELETE</code> events.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="#">Message</a></p>
+</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="entries.html">entries</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">entries</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/index.html"><span class="identifier">MutableSet</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/-mutable-entry/index.html"><span class="identifier">MutableEntry</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">Message</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="keys.html">keys</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">keys</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/index.html"><span class="identifier">MutableSet</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">&gt;</span></code>
+<p>A <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/index.html">MutableSet</a> of all cached ids.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="values.html">values</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">values</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-collection/index.html"><span class="identifier">MutableCollection</span></a><span class="symbol">&lt;</span><span class="identifier">Message</span><span class="symbol">&gt;</span></code>
+<p>A <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/index.html">MutableSet</a> of all cached messages</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="cache-message.html">cacheMessage</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">cacheMessage</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.cache.MessageCache$cacheMessage(net.dv8tion.jda.api.entities.Message)/message">message</span><span class="symbol">:</span>&nbsp;<span class="identifier">Message</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Message</span><span class="symbol">?</span></code>
+<p>Adds a message to the cache.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="clear.html">clear</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">clear</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Clears the cache</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="contains.html">contains</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">contains</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.cache.MessageCache$contains(kotlin.Long)/id">id</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Checks whether an id is cached or not.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="contains-key.html">containsKey</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">containsKey</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.cache.MessageCache$containsKey(kotlin.Long)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="contains-value.html">containsValue</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">containsValue</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.cache.MessageCache$containsValue(net.dv8tion.jda.api.entities.Message)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Message</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing/index.html"><span class="identifier">Nothing</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get.html">get</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.cache.MessageCache$get(kotlin.Long)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Message</span><span class="symbol">?</span></code>
+<p>Gets a message from the cache.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="is-empty.html">isEmpty</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">isEmpty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Checks whether there is at least one message cached.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="minus-assign.html">minusAssign</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">minusAssign</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.cache.MessageCache$minusAssign(kotlin.Long)/id">id</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">minusAssign</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.cache.MessageCache$minusAssign(net.dv8tion.jda.api.entities.Message)/message">message</span><span class="symbol">:</span>&nbsp;<span class="identifier">Message</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="plus-assign.html">plusAssign</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">plusAssign</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.cache.MessageCache$plusAssign(net.dv8tion.jda.api.entities.Message)/message">message</span><span class="symbol">:</span>&nbsp;<span class="identifier">Message</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="put.html">put</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.cache.MessageCache$put(kotlin.Long, net.dv8tion.jda.api.entities.Message)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.common.cache.MessageCache$put(kotlin.Long, net.dv8tion.jda.api.entities.Message)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Message</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Message</span><span class="symbol">?</span></code>
+<p>Adds a message to the cache.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="put-all.html">putAll</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">putAll</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.cache.MessageCache$putAll(kotlin.collections.Map((kotlin.Long, net.dv8tion.jda.api.entities.Message)))/from">from</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">Message</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing/index.html"><span class="identifier">Nothing</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="remove.html">remove</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">remove</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.cache.MessageCache$remove(kotlin.Long)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Message</span><span class="symbol">?</span></code>
+<p>Removes a message by it's <a href="remove.html#me.schlaubi.regnumutils.common.cache.MessageCache$remove(kotlin.Long)/key">id</a> from the cache.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">remove</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.cache.MessageCache$remove(net.dv8tion.jda.api.entities.Message)/message">message</span><span class="symbol">:</span>&nbsp;<span class="identifier">Message</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Message</span><span class="symbol">?</span></code>
+<p>Removes the <a href="remove.html#me.schlaubi.regnumutils.common.cache.MessageCache$remove(net.dv8tion.jda.api.entities.Message)/message">message</a> from the cache.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="activate.html">activate</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">activate</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.cache.MessageCache.Companion$activate(cc.hawkbot.regnum.client.event.EventManager)/eventManager">eventManager</span><span class="symbol">:</span>&nbsp;<a href="https://pages.hawkbot.cc/client/cc.hawkbot.regnum.client.event/-event-manager/index.html"><span class="identifier">EventManager</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">MessageCache</span></a></code>
+<p>Creates a new Message cache and registers it's listner to the specified <a href="activate.html#me.schlaubi.regnumutils.common.cache.MessageCache.Companion$activate(cc.hawkbot.regnum.client.event.EventManager)/eventManager">eventManager</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-memory-message-cache/index.html">MemoryMessageCache</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">MemoryMessageCache</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">MessageCache</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

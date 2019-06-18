@@ -1,0 +1,138 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CommandClient - common</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">common</a>&nbsp;/&nbsp;<a href="../index.html">me.schlaubi.regnumutils.command</a>&nbsp;/&nbsp;<a href="./index.html">CommandClient</a><br/>
+<br/>
+<h1>CommandClient</h1>
+<code><span class="keyword">interface </span><span class="identifier">CommandClient</span></code> <a href="https://github.com/HawkDiscord/regnum-utils/tree/master/command/src/main/kotlin/me/schlaubi/regnumutils/command/CommandClient.kt#L38">(source)</a>
+<p>The command client.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-command-event/index.html">CommandEvent</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CommandEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://ci.dv8tion.net/job/JDA4-Alpha/javadoc/net/dv8tion/jda/api/events/message/guild/GenericGuildMessageEvent.html"><span class="identifier">GenericGuildMessageEvent</span></a></code>
+<p>An command event.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="command-associations.html">commandAssociations</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">commandAssociations</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="../../me.schlaubi.regnumutils.command.spi/-command/index.html"><span class="identifier">Command</span></a><span class="symbol">&gt;</span></code>
+<p>The registered aliases and their command.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="commands.html">commands</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">commands</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../me.schlaubi.regnumutils.command.spi/-command/index.html"><span class="identifier">Command</span></a><span class="symbol">&gt;</span></code>
+<p>All registered commands.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="config.html">config</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">config</span><span class="symbol">: </span><a href="../../me.schlaubi.regnumutils.command.configuration/-command-client-configuration/index.html"><span class="identifier">CommandClientConfiguration</span></a></code>
+<p>The configuration of the client.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="executor.html">executor</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">executor</span><span class="symbol">: </span><span class="identifier">ExecutorService</span></code>
+<p>The <a href="#">executor</a> to execute command.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="information-provider.html">informationProvider</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">informationProvider</span><span class="symbol">: </span><a href="../../me.schlaubi.regnumutils.command.spi/-information-provider/index.html"><span class="identifier">InformationProvider</span></a></code>
+<p>The information provider.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="permission-handler.html">permissionHandler</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">permissionHandler</span><span class="symbol">: </span><a href="../../me.schlaubi.regnumutils.command.spi.permission/-permission-handler/index.html"><span class="identifier">PermissionHandler</span></a></code>
+<p>The permission handler.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="dispatch-command.html">dispatchCommand</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">dispatchCommand</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClient$dispatchCommand(me.schlaubi.regnumutils.command.CommandClient.CommandEvent)/commandEvent">commandEvent</span><span class="symbol">:</span>&nbsp;<a href="-command-event/index.html"><span class="identifier">CommandClient.CommandEvent</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Dispatches a command from the <a href="dispatch-command.html#me.schlaubi.regnumutils.command.CommandClient$dispatchCommand(me.schlaubi.regnumutils.command.CommandClient.CommandEvent)/commandEvent">commandEvent</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="register-command.html">registerCommand</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">registerCommand</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClient$registerCommand(me.schlaubi.regnumutils.command.spi.Command)/command">command</span><span class="symbol">:</span>&nbsp;<a href="../../me.schlaubi.regnumutils.command.spi/-command/index.html"><span class="identifier">Command</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Registers the <a href="register-command.html#me.schlaubi.regnumutils.command.CommandClient$registerCommand(me.schlaubi.regnumutils.command.spi.Command)/command">command</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="register-commands.html">registerCommands</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">registerCommands</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="me.schlaubi.regnumutils.command.CommandClient$registerCommands(kotlin.Array((me.schlaubi.regnumutils.command.spi.Command)))/commands">commands</span><span class="symbol">:</span>&nbsp;<a href="../../me.schlaubi.regnumutils.command.spi/-command/index.html"><span class="identifier">Command</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">registerCommands</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClient$registerCommands(kotlin.collections.Collection((me.schlaubi.regnumutils.command.spi.Command)))/commands">commands</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../../me.schlaubi.regnumutils.command.spi/-command/index.html"><span class="identifier">Command</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Registers the <a href="register-commands.html#me.schlaubi.regnumutils.command.CommandClient$registerCommands(kotlin.Array((me.schlaubi.regnumutils.command.spi.Command)))/commands">commands</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="unregister-alias.html">unregisterAlias</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">unregisterAlias</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClient$unregisterAlias(kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Unregisters the <a href="unregister-alias.html#me.schlaubi.regnumutils.command.CommandClient$unregisterAlias(kotlin.String)/alias">alias</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="unregister-command.html">unregisterCommand</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">unregisterCommand</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClient$unregisterCommand(me.schlaubi.regnumutils.command.spi.Command)/command">command</span><span class="symbol">:</span>&nbsp;<a href="../../me.schlaubi.regnumutils.command.spi/-command/index.html"><span class="identifier">Command</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Unregisters the <a href="unregister-command.html#me.schlaubi.regnumutils.command.CommandClient$unregisterCommand(me.schlaubi.regnumutils.command.spi.Command)/command">command</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

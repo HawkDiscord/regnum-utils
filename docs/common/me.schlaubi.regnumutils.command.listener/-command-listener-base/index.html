@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CommandListenerBase - common</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">common</a>&nbsp;/&nbsp;<a href="../index.html">me.schlaubi.regnumutils.command.listener</a>&nbsp;/&nbsp;<a href="./index.html">CommandListenerBase</a><br/>
+<br/>
+<h1>CommandListenerBase</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">CommandListenerBase</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JDAListenerAdapter</span></code> <a href="https://github.com/HawkDiscord/regnum-utils/tree/master/command/src/main/kotlin/me/schlaubi/regnumutils/command/listener/_CommandListeners.kt#L28">(source)</a>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="command-client.html">commandClient</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">commandClient</span><span class="symbol">: </span><a href="../../me.schlaubi.regnumutils.command/-command-client/index.html"><span class="identifier">CommandClient</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="on-guild-message-received.html">onGuildMessageReceived</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onGuildMessageReceived</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.listener.CommandListenerBase$onGuildMessageReceived(net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent)/event">event</span><span class="symbol">:</span>&nbsp;<a href="https://ci.dv8tion.net/job/JDA4-Alpha/javadoc/net/dv8tion/jda/api/events/message/guild/GuildMessageReceivedEvent.html"><span class="identifier">GuildMessageReceivedEvent</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-message-edit-command-listener/index.html">MessageEditCommandListener</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">MessageEditCommandListener</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CommandListenerBase</span></a></code>
+<p>A command listener which listenes for <a href="https://ci.dv8tion.net/job/JDA4-Alpha/javadoc/net/dv8tion/jda/api/events/message/guild/GuildMessageReceivedEvent.html">GuildMessageReceivedEvent</a>s and <a href="https://ci.dv8tion.net/job/JDA4-Alpha/javadoc/net/dv8tion/jda/api/events/message/guild/GuildMessageUpdateEvent.html">GuildMessageUpdateEvent</a>s.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-message-received-command-listener/index.html">MessageReceivedCommandListener</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">MessageReceivedCommandListener</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CommandListenerBase</span></a></code>
+<p>A command listener which listenes for <a href="https://ci.dv8tion.net/job/JDA4-Alpha/javadoc/net/dv8tion/jda/api/events/message/guild/GuildMessageReceivedEvent.html">GuildMessageReceivedEvent</a>s.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
