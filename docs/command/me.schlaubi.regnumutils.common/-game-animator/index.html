@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>GameAnimator - command</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">command</a>&nbsp;/&nbsp;<a href="../index.html">me.schlaubi.regnumutils.common</a>&nbsp;/&nbsp;<a href="./index.html">GameAnimator</a><br/>
+<br/>
+<h1>GameAnimator</h1>
+<code><span class="keyword">class </span><span class="identifier">GameAnimator</span></code> <a href="https://github.com/HawkDiscord/regnum-utils/tree/master/common/src/main/kotlin/me/schlaubi/regnumutils/common/GameAnimator.kt#L41">(source)</a>
+<p>Animates the bots presence according to the specified <a href="#">interval</a> and <a href="#">TimeUnit</a>.</p>
+<h3>Parameters</h3>
+<p><a name="scheduler"></a>
+<code>scheduler</code> - the <a href="#">Scheduler</a> used to animate the games</p>
+<p><a name="applier"></a>
+<code>applier</code> - A <a href="#">function</a> that applies the games to the JDA instance</p>
+<p><a name="initialDelay"></a>
+<code>initialDelay</code> - The delay between the <a href="start.html">start</a> and the first <a href="#">animate</a> call</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="start.html">start</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">start</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ScheduledFuture</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span></code>
+<p>Starts the animator.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="stop.html">stop</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">stop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">Runnable</span><span class="symbol">&gt;</span></code>
+<p>Stops the game animator.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="builder.html">builder</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">builder</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../me.schlaubi.regnumutils.common.builder/-game-animator-builder/index.html"><span class="identifier">GameAnimatorBuilder</span></a></code>
+<p>Creates a new <a href="../../me.schlaubi.regnumutils.common.builder/-game-animator-builder/index.html">GameAnimatorBuilder</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

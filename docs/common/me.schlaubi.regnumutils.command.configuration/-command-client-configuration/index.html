@@ -1,0 +1,115 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CommandClientConfiguration - common</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">common</a>&nbsp;/&nbsp;<a href="../index.html">me.schlaubi.regnumutils.command.configuration</a>&nbsp;/&nbsp;<a href="./index.html">CommandClientConfiguration</a><br/>
+<br/>
+<h1>CommandClientConfiguration</h1>
+<code><span class="keyword">interface </span><span class="identifier">CommandClientConfiguration</span></code> <a href="https://github.com/HawkDiscord/regnum-utils/tree/master/command/src/main/kotlin/me/schlaubi/regnumutils/command/configuration/CommandClientConfiguration.kt#L30">(source)</a>
+<p>Container for command client options.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="../-mutable-command-client-configuration/index.html">MutableCommandClientConfiguration</a></p>
+<p><a href="../-immutable-command-client-configuration/index.html">ImmutableCommandClientConfiguration</a></p>
+</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="accept-mention-prefix.html">acceptMentionPrefix</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">acceptMentionPrefix</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Whether the bot should listen for commands prefixed by its mention or not.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="always-default-prefix.html">alwaysDefaultPrefix</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">alwaysDefaultPrefix</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Whether the default prefix should always be valid or not.
+Event if there is a custom prefix for that guild</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="default-prefix.html">defaultPrefix</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">defaultPrefix</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>The default prefix.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="owner-permission.html">ownerPermission</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">ownerPermission</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Whether the owner should be allowed to execute every command or not.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="owners.html">owners</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">owners</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">&gt;</span></code>
+<p>A list of the bot-owner's id's</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="send-typing.html">sendTyping</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">sendTyping</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Whether the bot should send typing before executing the command or not.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="build-permission-error-message.html">buildPermissionErrorMessage</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">buildPermissionErrorMessage</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.configuration.CommandClientConfiguration$buildPermissionErrorMessage(me.schlaubi.regnumutils.command.spi.Context)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../../me.schlaubi.regnumutils.command.spi/-context/index.html"><span class="identifier">Context</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Message</span></code>
+<p>A function that build an permission error for the <a href="build-permission-error-message.html#me.schlaubi.regnumutils.command.configuration.CommandClientConfiguration$buildPermissionErrorMessage(me.schlaubi.regnumutils.command.spi.Context)/context">context</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-immutable-command-client-configuration/index.html">ImmutableCommandClientConfiguration</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">ImmutableCommandClientConfiguration</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CommandClientConfiguration</span></a></code>
+<p>An immutable implementation of <a href="./index.html">CommandClientConfiguration</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-mutable-command-client-configuration/index.html">MutableCommandClientConfiguration</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">MutableCommandClientConfiguration</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CommandClientConfiguration</span></a></code>
+<p>A mutable implementation of the <a href="./index.html">CommandClientConfiguration</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

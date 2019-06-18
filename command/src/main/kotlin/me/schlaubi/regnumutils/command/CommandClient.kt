@@ -21,6 +21,7 @@ package me.schlaubi.regnumutils.command
 
 import me.schlaubi.regnumutils.command.configuration.CommandClientConfiguration
 import me.schlaubi.regnumutils.command.spi.Command
+import me.schlaubi.regnumutils.command.spi.InformationProvider
 import me.schlaubi.regnumutils.command.spi.permission.PermissionHandler
 import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.entities.Message
@@ -30,31 +31,84 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent
 import net.dv8tion.jda.api.events.message.guild.GuildMessageUpdateEvent
 import java.util.concurrent.ExecutorService
 
+/**
+ * The command client.
+ */
+@Suppress("unused")
 interface CommandClient {
 
+    /**
+     * The [executor][ExecutorService] to execute command.
+     */
     val executor: ExecutorService
 
+    /**
+     * The configuration of the client.
+     * @see CommandClientConfiguration
+     */
     val config: CommandClientConfiguration
 
+    /**
+     * The registered aliases and their command.
+     */
     val commandAssociations: Map<String, Command>
 
+    /**
+     * All registered commands.
+     */
     val commands: List<Command>
         get() = commandAssociations.values.distinct()
 
+    /**
+     * The permission handler.
+     * @see PermissionHandler
+     */
     val permissionHandler: PermissionHandler
 
+    /**
+     * The information provider.
+     * @see InformationProvider
+     */
+    val informationProvider: InformationProvider
+
+    /**
+     * Registers the [command].
+     */
     fun registerCommand(command: Command)
 
+    /**
+     * Registers the [commands].
+     */
     fun registerCommands(vararg commands: Command) = commands.forEach(this::registerCommand)
 
+    /**
+     * Registers the [commands].
+     */
     fun registerCommands(commands: Collection<Command>) = commands.forEach(this::registerCommand)
 
+    /**
+     * Unregisters the [command].
+     */
     fun unregisterCommand(command: Command)
 
+    /**
+     * Unregisters the [alias].
+     */
     fun unregisterAlias(alias: String)
 
+    /**
+     * Dispatches a command from the [commandEvent].
+     */
     fun dispatchCommand(commandEvent: CommandEvent)
 
+    /**
+     * An command event.
+     * @param jda jda instance
+     * @param responseNumber response number
+     * @param messageId message id
+     * @param channel channel
+     * @param message message
+     */
     class CommandEvent(
         api: JDA,
         responseNumber: Long,

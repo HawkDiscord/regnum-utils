@@ -1,17 +1,12 @@
 $dokka.format:html
 $dokka.linkExtension:html
-$dokka.location:me.schlaubi.regnumutils.common.jda$applyGame(net.dv8tion.jda.api.JDA, cc.hawkbot.regnum.client.core.discord.GameAnimator.Game, kotlin.Function1((kotlin.String, )))me.schlaubi.regnumutils.common.jda/net.dv8tion.jda.api.-j-d-a/apply-game.html
-$dokka.location:me.schlaubi.regnumutils.common.jda$applyGame(net.dv8tion.jda.api.sharding.ShardManager, cc.hawkbot.regnum.client.core.discord.GameAnimator.Game, kotlin.Function1((kotlin.String, )))me.schlaubi.regnumutils.common.jda/net.dv8tion.jda.api.sharding.-shard-manager/apply-game.html
-$dokka.location:me.schlaubi.regnumutils.common.jda$jda#cc.hawkbot.regnum.client.core.discord.ShardManagerme.schlaubi.regnumutils.common.jda/cc.hawkbot.regnum.client.core.discord.-shard-manager/jda.html
-$dokka.location:me.schlaubi.regnumutils.common.jda$onlineStatus#cc.hawkbot.regnum.client.core.discord.GameAnimator.Gameme.schlaubi.regnumutils.common.jda/cc.hawkbot.regnum.client.core.discord.-game-animator.-game/online-status.html
-$dokka.location:me.schlaubi.regnumutils.common.jda$toActivity(cc.hawkbot.regnum.client.core.discord.GameAnimator.Game, kotlin.Function1((kotlin.String, )))me.schlaubi.regnumutils.common.jda/cc.hawkbot.regnum.client.core.discord.-game-animator.-game/to-activity.html
-me.schlaubi.regnumutils.common
-me.schlaubi.regnumutils.common.builder
-me.schlaubi.regnumutils.common.cache
-me.schlaubi.regnumutils.common.constants
-me.schlaubi.regnumutils.common.event
-me.schlaubi.regnumutils.common.events
-me.schlaubi.regnumutils.common.formatting
-me.schlaubi.regnumutils.common.jda
-me.schlaubi.regnumutils.common.messaging
-me.schlaubi.regnumutils.common.parsing
+$dokka.location:me.schlaubi.regnumutils.command.utils$isBotOwner(net.dv8tion.jda.api.entities.ISnowflake, me.schlaubi.regnumutils.command.CommandClient)me.schlaubi.regnumutils.command.utils/net.dv8tion.jda.api.entities.-i-snowflake/is-bot-owner.html
+$dokka.location:me.schlaubi.regnumutils.command.utils$put(kotlin.collections.MutableMap((kotlin.String, me.schlaubi.regnumutils.command.spi.Command)), me.schlaubi.regnumutils.command.spi.Command)me.schlaubi.regnumutils.command.utils/kotlin.collections.-mutable-map/put.html
+me.schlaubi.regnumutils.command
+me.schlaubi.regnumutils.command.configuration
+me.schlaubi.regnumutils.command.event
+me.schlaubi.regnumutils.command.internal
+me.schlaubi.regnumutils.command.listener
+me.schlaubi.regnumutils.command.spi
+me.schlaubi.regnumutils.command.spi.permission
+me.schlaubi.regnumutils.command.utils

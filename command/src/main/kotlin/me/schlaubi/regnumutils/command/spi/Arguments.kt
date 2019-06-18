@@ -86,7 +86,6 @@ interface Arguments : Iterable<String> {
      *
      * @sample samples.collections.Collections.Transformations.joinToString
      */
-
     fun string(
         from: Int,
         to: Int,
@@ -106,7 +105,6 @@ interface Arguments : Iterable<String> {
      *
      * @sample samples.collections.Collections.Transformations.joinToString
      */
-
     fun string(
         to: Int,
         separator: CharSequence = ", ",
@@ -130,4 +128,5 @@ interface Arguments : Iterable<String> {
      * Returns an [Iterator] for all arguments in the 0 [to] range.
      */
     fun iterator(to: Int) = list(to).iterator()
+
 }

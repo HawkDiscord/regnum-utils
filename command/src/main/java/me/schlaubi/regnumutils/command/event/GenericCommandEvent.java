@@ -26,6 +26,7 @@ import net.dv8tion.jda.api.events.guild.GenericGuildEvent;
 
 import javax.annotation.Nonnull;
 
+@SuppressWarnings("WeakerAccess")
 public class GenericCommandEvent extends GenericGuildEvent {
 
     private final Command command;
@@ -41,7 +42,7 @@ public class GenericCommandEvent extends GenericGuildEvent {
      * @return the {@link Command}
      */
     @Nonnull
-    public Command getCommand() {
+    Command getCommand() {
         return command;
     }
 }

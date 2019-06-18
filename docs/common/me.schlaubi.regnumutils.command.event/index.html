@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>me.schlaubi.regnumutils.command.event - common</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">common</a>&nbsp;/&nbsp;<a href="./index.html">me.schlaubi.regnumutils.command.event</a><br/>
+<br/>
+<h2>Package me.schlaubi.regnumutils.command.event</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-command-executed-event/index.html">CommandExecutedEvent</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">CommandExecutedEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-generic-command-context-event/index.html"><span class="identifier">GenericCommandContextEvent</span></a></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">CommandExecutedEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-generic-command-context-event/index.html"><span class="identifier">GenericCommandContextEvent</span></a></code>
+<p>Event that is fired whenever a <code><a href="../me.schlaubi.regnumutils.command.spi/-command/index.html">me.schlaubi.regnumutils.command.spi.Command</a></code> was executed successfully.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-command-fail-event/index.html">CommandFailEvent</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">CommandFailEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-generic-command-context-event/index.html"><span class="identifier">GenericCommandContextEvent</span></a></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">CommandFailEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-generic-command-context-event/index.html"><span class="identifier">GenericCommandContextEvent</span></a></code>
+<p>Event that gets executed whenever a command fails.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-command-permission-violation-event/index.html">CommandPermissionViolationEvent</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">CommandPermissionViolationEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-generic-command-event/index.html"><span class="identifier">GenericCommandEvent</span></a></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">CommandPermissionViolationEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-generic-command-event/index.html"><span class="identifier">GenericCommandEvent</span></a></code>
+<p>Event that is getting fired whenever someone tries to execute a command without having the needed permissions.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-generic-command-context-event/index.html">GenericCommandContextEvent</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">GenericCommandContextEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-generic-command-event/index.html"><span class="identifier">GenericCommandEvent</span></a></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">GenericCommandContextEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-generic-command-event/index.html"><span class="identifier">GenericCommandEvent</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-generic-command-event/index.html">GenericCommandEvent</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">GenericCommandEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GenericGuildEvent</span></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">GenericCommandEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GenericGuildEvent</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-listener-adapter/index.html">ListenerAdapter</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">ListenerAdapter</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JDAListenerAdapter</span></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">ListenerAdapter</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JDAListenerAdapter</span></code>
+<p>Extension of the <code><a href="#">JDAListenerAdapter</a></code> for command events.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

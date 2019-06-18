@@ -21,7 +21,13 @@ package me.schlaubi.regnumutils.command.spi.permission
 
 import me.schlaubi.regnumutils.command.spi.Context
 
+/**
+ * Decides who is allowed to execute a command
+ */
 interface PermissionHandler {
 
+    /**
+     * @return Whether the command can be excecuted in this [context] or not
+     */
     fun isCovered(context: Context): Boolean
 }

@@ -19,12 +19,31 @@
 
 package me.schlaubi.regnumutils.command.spi
 
+import me.schlaubi.regnumutils.command.spi.permission.Permissions
+
 /**
  * Representation of a sub-command.
  * @see AbstractCommand
  * @see Command
  */
-abstract class SubCommand : AbstractCommand() {
+abstract class SubCommand(
+    displayName: String,
+    permissions: Permissions,
+    aliases: Array<String>,
+    description: String,
+    exampleUsage: String
+) : AbstractCommand(displayName, permissions, aliases, description, exampleUsage) {
+
+    /**
+     * @see AbstractCommand
+     */
+    constructor(
+        displayName: String,
+        permissions: Permissions,
+        alias: String,
+        description: String,
+        exampleUsage: String = ""
+    ) : this(displayName, permissions, arrayOf(alias), description, exampleUsage)
 
     /**
      * The commands parent

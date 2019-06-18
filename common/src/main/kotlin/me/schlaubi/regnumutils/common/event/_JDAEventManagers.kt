@@ -57,6 +57,7 @@ sealed class JDAEventManagerAdapter(
     /**
      * Converts this [IEventManager] to an [EventManager].
      */
+    @Suppress("MemberVisibilityCanBePrivate")
     fun toEventManager(): EventManager = manager
 
 }

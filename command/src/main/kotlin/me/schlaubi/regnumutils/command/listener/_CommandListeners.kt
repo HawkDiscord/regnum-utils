@@ -25,7 +25,7 @@ import me.schlaubi.regnumutils.common.event.JDAListenerAdapter
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent
 import net.dv8tion.jda.api.events.message.guild.GuildMessageUpdateEvent
 
-sealed class SealedCommandListener(protected val commandClient: CommandClient) : JDAListenerAdapter() {
+sealed class CommandListenerBase(protected val commandClient: CommandClient) : JDAListenerAdapter() {
 
     @EventSubscriber
     override fun onGuildMessageReceived(event: GuildMessageReceivedEvent) =
@@ -36,13 +36,13 @@ sealed class SealedCommandListener(protected val commandClient: CommandClient) :
  * A command listener which listenes for [GuildMessageReceivedEvent]s.
  * @see me.schlaubi.regnumutils.command.CommandClientBuilder.setCommandListener
  */
-class MessageReceivedCommandListener(commandClient: CommandClient) : SealedCommandListener(commandClient)
+class MessageReceivedCommandListener(commandClient: CommandClient) : CommandListenerBase(commandClient)
 
 /**
  * A command listener which listenes for [GuildMessageReceivedEvent]s and [GuildMessageUpdateEvent]s.
  * @see me.schlaubi.regnumutils.command.CommandClientBuilder.setCommandListener
  */
-class MessageEditCommandListener(commandClient: CommandClient) : SealedCommandListener(commandClient) {
+class MessageEditCommandListener(commandClient: CommandClient) : CommandListenerBase(commandClient) {
     @EventSubscriber
     override fun onGuildMessageUpdate(event: GuildMessageUpdateEvent) =
         commandClient.dispatchCommand(CommandClient.CommandEvent(event))

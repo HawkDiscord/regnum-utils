@@ -19,5 +19,78 @@
 
 package me.schlaubi.regnumutils.command.spi.permission
 
+import me.schlaubi.regnumutils.command.internal.PermissionsImpl
+import net.dv8tion.jda.api.Permission
+
+@Suppress("unused")
 interface Permissions {
+
+    /**
+     * Everyone can execute the command.
+     */
+    val public: Boolean
+
+    /**
+     * Only the bot owner can execute the command.
+     */
+    val ownerExclusive: Boolean
+
+    /**
+     * Only someone with [Permission.MANAGE_SERVER] or [Permission.ADMINISTRATOR] can execute that command.
+     * @see DefaultPermissionHandler
+     */
+    val serverOwnerExclusive: Boolean
+
+    /**
+     * Some permission node.
+     */
+    val node: String
+
+    /**
+     * Only people with that [Permission] can execute the command.
+     */
+    val discordPermission: Permission?
+
+    companion object {
+        private val publicPermission =
+            PermissionsImpl(true, false, false, "public", null)
+
+        private val ownerPermission =
+            PermissionsImpl(false, true, false, "botOwner", null)
+
+        private val serverOwnerPermission =
+            PermissionsImpl(false, false, true, "serverOwner", null)
+
+        /**
+         * Everyone can execute the command.
+         */
+        @JvmStatic
+        fun public(): Permissions = publicPermission
+
+        /**
+         * Only the bot owner can execute the command.
+         */
+        @JvmStatic
+        fun botOwner(): Permissions = ownerPermission
+
+        /**
+         * Only someone with [Permission.MANAGE_SERVER] or [Permission.ADMINISTRATOR] can execute that command.
+         * @see DefaultPermissionHandler
+         */
+        @JvmStatic
+        fun serverOwner(): Permissions = serverOwnerPermission
+
+        /**
+         * Only people with that [permission] can execute the command.
+         */
+        @JvmStatic
+        fun discord(permission: Permission): Permissions = PermissionsImpl(
+            false,
+            false,
+            false,
+            permission.getName(),
+            permission
+        )
+    }
+
 }

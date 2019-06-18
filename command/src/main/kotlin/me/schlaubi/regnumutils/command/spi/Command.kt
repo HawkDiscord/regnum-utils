@@ -21,6 +21,9 @@ package me.schlaubi.regnumutils.command.spi
 
 import me.schlaubi.regnumutils.command.spi.permission.Permissions
 
+/**
+ * Command interface.
+ */
 @Suppress("unused")
 interface Command {
 
@@ -52,9 +55,9 @@ interface Command {
     /**
      * The commands sub-commands.
      */
-    val subCommands: List<SubCommand>
+    val subCommandAssociations: Map<String, Command>
 
-    fun hasSubCommands() = !subCommands.isEmpty()
+    fun hasSubCommands() = !subCommandAssociations.isEmpty()
 
     /**
      * The main method of the command.
@@ -69,8 +72,8 @@ interface Command {
     fun registerSubCommand(subCommand: SubCommand)
 
     /**
-     * Registers the [subCommands].
+     * Registers the [subCommandAssociations].
      */
-    fun registerSubCommands(vararg subCommand: SubCommand) = subCommands.forEach(this::registerSubCommand)
+    fun registerSubCommands(vararg subCommands: SubCommand) = subCommands.forEach(this::registerSubCommand)
 
 }

@@ -41,11 +41,12 @@ public class EmbedUtil {
      * Message}.
      *
      * @param embed the Embed {@link MessageEmbed}
+     * @see EmbedUtil#message(MessageBuilder)
      * @return the Message {@link Message}
      */
     @NotNull
     public static Message message(@NotNull MessageEmbed embed) {
-        return new MessageBuilder(embed).build();
+        return message(new MessageBuilder(embed));
     }
 
     /**
@@ -59,6 +60,31 @@ public class EmbedUtil {
     @NotNull
     public static Message message(@NotNull EmbedBuilder builder) {
         return message(builder.build());
+    }
+
+    /**
+     * Converts an {@link MessageBuilder} to a Message {@link
+     * Message}.
+     *
+     * @param builder the builder
+     * @return the Message {@link Message}
+     */
+    @NotNull
+    public static Message message(@NotNull MessageBuilder builder) {
+        return builder.build();
+    }
+
+    /**
+     * Converts an plain text {@link CharSequence} a Message {@link
+     * Message}.
+     *
+     * @param content the content of the message
+     * @see EmbedUtil#message(MessageBuilder)
+     * @return the Message {@link Message}
+     */
+    @NotNull
+    public static Message message(@NotNull CharSequence content) {
+        return message(new MessageBuilder(content));
     }
 
     /**
