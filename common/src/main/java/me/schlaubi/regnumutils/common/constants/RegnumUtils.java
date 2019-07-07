@@ -20,9 +20,9 @@
 package me.schlaubi.regnumutils.common.constants;
 
 /**
- * Some information about the Regnum utils library.
+ * Some information about the Regnum util library.
  */
-@SuppressWarnings({"unused"})
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class RegnumUtils {
 
     public static final String AUTHOR = "Michael \"Schlaubi\" Rittmeister";

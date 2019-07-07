@@ -30,6 +30,23 @@ import net.dv8tion.jda.api.entities.Message
 interface CommandClientConfiguration {
 
     /**
+     * The default prefix.
+     */
+    val defaultPrefix: String
+
+    /**
+     * Whether the default prefix should always be valid or not.
+     * Event if there is a custom prefix for that guild
+     */
+    val alwaysDefaultPrefix: Boolean
+
+    /**
+     * A list of the bot-owner's id's
+     * @see ownerPermission
+     */
+    val owners: List<Long>
+
+    /**
      * Whether the bot should send typing before executing the command or not.
      */
     val sendTyping: Boolean
@@ -38,6 +55,12 @@ interface CommandClientConfiguration {
      * Whether the bot should listen for commands prefixed by its mention or not.
      */
     val acceptMentionPrefix: Boolean
+
+    /**
+     * Whether the owner should be allowed to execute every command or not.
+     * @see me.schlaubi.regnumutils.command.spi.permission.DefaultPermissionHandler
+     */
+    val ownerPermission: Boolean
 
     /**
      * A function that build an permission error for the [context].

@@ -21,7 +21,9 @@ package me.schlaubi.regnumutils.command.internal
 
 import me.schlaubi.regnumutils.command.spi.Arguments
 
-class ArgumentsImpl(override val list: List<String>) : Arguments {
+internal class ArgumentsImpl(override val list: List<String>) : Arguments {
 
     override val array: Array<String> by lazy { list.toTypedArray() }
+
+    override fun toString() = list.toString()
 }

@@ -17,6 +17,15 @@
  * along with this program.  If not, see https://www.gnu.org/licenses/.
  */
 
-package me.schlaubi.regnumutils.command.spi.permission
+package me.schlaubi.regnumutils.command.internal
 
-class CommandPermissions : Permissions
+import me.schlaubi.regnumutils.command.spi.permission.Permissions
+import net.dv8tion.jda.api.Permission
+
+open class PermissionsImpl(
+    override val public: Boolean,
+    override val ownerExclusive: Boolean,
+    override val serverOwnerExclusive: Boolean,
+    override val node: String,
+    override val discordPermission: Permission?
+) : Permissions

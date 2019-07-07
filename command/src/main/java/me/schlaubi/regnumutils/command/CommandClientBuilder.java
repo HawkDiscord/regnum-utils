@@ -23,14 +23,19 @@ import cc.hawkbot.regnum.util.DefaultThreadFactory;
 import com.google.common.base.Preconditions;
 import me.schlaubi.regnumutils.command.configuration.CommandClientConfiguration;
 import me.schlaubi.regnumutils.command.configuration.MutableCommandClientConfiguration;
+import me.schlaubi.regnumutils.command.internal.CommandClientImpl;
+import me.schlaubi.regnumutils.command.listener.CommandListenerBase;
 import me.schlaubi.regnumutils.command.listener.MessageEditCommandListener;
 import me.schlaubi.regnumutils.command.listener.MessageReceivedCommandListener;
-import me.schlaubi.regnumutils.command.listener.SealedCommandListener;
 import me.schlaubi.regnumutils.command.spi.Command;
 import me.schlaubi.regnumutils.command.spi.Context;
+import me.schlaubi.regnumutils.command.spi.InformationProvider;
+import me.schlaubi.regnumutils.command.spi.permission.DefaultPermissionHandler;
 import me.schlaubi.regnumutils.command.spi.permission.PermissionHandler;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.MessageChannel;
+import net.dv8tion.jda.api.sharding.ShardManager;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.InvocationTargetException;
@@ -50,24 +55,51 @@ public class CommandClientBuilder {
 
     private List<Command> commands = new ArrayList<>();
 
-    private PermissionHandler permissionHandler;
+    private PermissionHandler permissionHandler = new DefaultPermissionHandler();
 
-    private Class<? extends SealedCommandListener> commandListener = MessageReceivedCommandListener.class;
+    private Class<? extends CommandListenerBase> commandListener = MessageReceivedCommandListener.class;
 
     private CommandClientConfiguration configuration = new MutableCommandClientConfiguration();
 
+    private InformationProvider informationProvider;
+
+    private final EventRegistry eventRegistry;
+
+    private CommandClientBuilder(EventRegistry eventRegistry) {
+        this.eventRegistry = eventRegistry;
+    }
+
     /**
-     * Returns the Class of the currently set {@link SealedCommandListener}.
+     * Creates a {@link CommandClientBuilder}
+     *
+     * @param jda your {@link JDA} instance
+     */
+    public CommandClientBuilder(JDA jda) {
+        this(jda::addEventListener);
+    }
+
+    /**
+     * Creates a {@link CommandClientBuilder}
+     *
+     * @param shardManager your {@link ShardManager} instance
+     */
+
+    public CommandClientBuilder(ShardManager shardManager) {
+        this(shardManager::addEventListener);
+    }
+
+    /**
+     * Returns the Class of the currently set {@link CommandListenerBase}.
      *
      * @return the {@link Class}
      */
     @NotNull
-    public Class<? extends SealedCommandListener> getCommandListener() {
+    public Class<? extends CommandListenerBase> getCommandListener() {
         return commandListener;
     }
 
     /**
-     * Sets the Class of the currently set {@link SealedCommandListener}.
+     * Sets the Class of the currently set {@link CommandListenerBase}.
      * Changing this from an {@link MessageReceivedCommandListener} to an {@link MessageEditCommandListener} will also parse {@code MESSAGE_UPDATE} events as commands
      *
      * @return the {@link CommandClientBuilder}
@@ -75,7 +107,7 @@ public class CommandClientBuilder {
      * @see MessageReceivedCommandListener
      * @see MessageEditCommandListener
      */
-    public CommandClientBuilder setCommandListener(@NotNull Class<? extends SealedCommandListener> commandListener) {
+    public CommandClientBuilder setCommandListener(@NotNull Class<? extends CommandListenerBase> commandListener) {
         try {
             Preconditions.checkArgument(!Modifier.isPublic(commandListener.getConstructor(CommandClient.class).getModifiers()), "The constructor of the command listener must be public!");
         } catch (NoSuchMethodException e) {
@@ -205,13 +237,13 @@ public class CommandClientBuilder {
      * Sets whether the bot should send typing before it parses commands or not.
      *
      * @param sendTyping whether the bot should send typing before it parses commands or not.
-     *  @see CommandClientConfiguration#getSendTyping()
      * @return the {@link CommandClientBuilder}
      * @throws IllegalStateException if the stored {@link CommandClientConfiguration} is a {@link me.schlaubi.regnumutils.command.configuration.ImmutableCommandClientConfiguration}
+     * @see CommandClientConfiguration#getSendTyping()
      */
     @NotNull
     public CommandClientBuilder sendTyping(boolean sendTyping) {
-        checkMutablility();
+        checkMutability();
         ((MutableCommandClientConfiguration) configuration).setSendTyping(sendTyping);
         return this;
     }
@@ -220,14 +252,29 @@ public class CommandClientBuilder {
      * Sets whether the bot should accept a mention as a command prefix or not.
      *
      * @param acceptMentionPrefix whether the bot should accept a mention as a command prefix or not
-     * @see CommandClientConfiguration#getAcceptMentionPrefix()
      * @return the {@link CommandClientBuilder}
      * @throws IllegalStateException if the stored {@link CommandClientConfiguration} is a {@link me.schlaubi.regnumutils.command.configuration.ImmutableCommandClientConfiguration}
+     * @see CommandClientConfiguration#getAcceptMentionPrefix()
      */
     @NotNull
     public CommandClientBuilder acceptMentionPrefix(boolean acceptMentionPrefix) {
-        checkMutablility();
+        checkMutability();
         ((MutableCommandClientConfiguration) configuration).setAcceptMentionPrefix(acceptMentionPrefix);
+        return this;
+    }
+
+    /**
+     * Sets whether the owner should be allowed to execute all commands or not.
+     *
+     * @param ownerPermission whether the owner should be allowed to execute all commands or not.
+     * @return the {@link CommandClientBuilder}
+     * @throws IllegalStateException if the stored {@link CommandClientConfiguration} is a {@link me.schlaubi.regnumutils.command.configuration.ImmutableCommandClientConfiguration}
+     * @see CommandClientConfiguration#getAcceptMentionPrefix()
+     */
+    @NotNull
+    public CommandClientBuilder enableOwnerPermissions(boolean ownerPermission) {
+        checkMutability();
+        ((MutableCommandClientConfiguration) configuration).setOwnerPermission(ownerPermission);
         return this;
     }
 
@@ -235,26 +282,154 @@ public class CommandClientBuilder {
      * Sets the builder for the permissions message that will get send to a user when {@link Context}'s send methods fails.
      *
      * @param permissionErrorMessageBuilder the {@link Function}
-     * @see CommandClientConfiguration#buildPermissionErrorMessage(Context)
      * @return the {@link CommandClientBuilder}
      * @throws IllegalStateException if the stored {@link CommandClientConfiguration} is a {@link me.schlaubi.regnumutils.command.configuration.ImmutableCommandClientConfiguration}
+     * @see CommandClientConfiguration#buildPermissionErrorMessage(Context)
      */
     @NotNull
     public CommandClientBuilder setPermissionErrorMessageBuilder(Function<@NotNull Context, @NotNull Message> permissionErrorMessageBuilder) {
-        checkMutablility();
+        checkMutability();
         ((MutableCommandClientConfiguration) configuration).setPermissionErrorMessageBuilder(permissionErrorMessageBuilder);
         return this;
     }
 
+    /**
+     * Sets the list of bot owners.
+     *
+     * @param owners a {@link List} containing all bot owner ids
+     * @return the {@link CommandClientBuilder}
+     * @throws IllegalStateException if the stored {@link CommandClientConfiguration} is a {@link me.schlaubi.regnumutils.command.configuration.ImmutableCommandClientConfiguration}
+     * @see CommandClientConfiguration#getOwners()
+     */
+    @NotNull
+    public CommandClientBuilder setOwners(List<Long> owners) {
+        checkMutability();
+        ((MutableCommandClientConfiguration) configuration).setOwners(owners);
+        return this;
+    }
 
-    private void checkMutablility() {
-        Preconditions.checkState(!(configuration instanceof MutableCommandClientConfiguration),
+    /**
+     * Adds bot owners.
+     *
+     * @param botOwnerIds the ids of the bot owners
+     * @return the {@link CommandClientBuilder}
+     * @throws IllegalStateException if the stored {@link CommandClientConfiguration} is a {@link me.schlaubi.regnumutils.command.configuration.ImmutableCommandClientConfiguration}
+     * @see CommandClientConfiguration#getOwners()
+     * @see me.schlaubi.regnumutils.command.spi.permission.DefaultPermissionHandler
+     */
+    @NotNull
+    public CommandClientBuilder addBotOwners(Long... botOwnerIds) {
+        checkMutability();
+        Collections.addAll(configuration.getOwners(), botOwnerIds);
+        return this;
+    }
+
+    /**
+     * Adds bot owners.
+     *
+     * @param botOwnerIds a {@link Collection} of the ids of the bot owners
+     * @return the {@link CommandClientBuilder}
+     * @throws IllegalStateException if the stored {@link CommandClientConfiguration} is a {@link me.schlaubi.regnumutils.command.configuration.ImmutableCommandClientConfiguration}
+     * @see CommandClientConfiguration#getOwners()
+     * @see me.schlaubi.regnumutils.command.spi.permission.DefaultPermissionHandler
+     */
+    @NotNull
+    public CommandClientBuilder addBotOwners(Collection<Long> botOwnerIds) {
+        checkMutability();
+        configuration.getOwners().addAll(botOwnerIds);
+        return this;
+    }
+
+    /**
+     * Sets the default prefix.
+     *
+     * @param prefix the prefix
+     * @return the {@link CommandClientBuilder}
+     * @throws IllegalStateException if the stored {@link CommandClientConfiguration} is a {@link me.schlaubi.regnumutils.command.configuration.ImmutableCommandClientConfiguration}
+     * @see CommandClientConfiguration#getDefaultPrefix()
+     */
+    @NotNull
+    public CommandClientBuilder setPrefix(String prefix) {
+        checkMutability();
+        ((MutableCommandClientConfiguration) configuration).setDefaultPrefix(prefix);
+        return this;
+    }
+
+    /**
+     * Lets the bot send typing before executing a command.
+     *
+     * @param sendTyping Whether this should get enabled or not
+     * @return the {@link CommandClientBuilder}
+     * @throws IllegalStateException if the stored {@link CommandClientConfiguration} is a {@link me.schlaubi.regnumutils.command.configuration.ImmutableCommandClientConfiguration}
+     * @see MessageChannel#sendTyping()
+     */
+    @NotNull
+    public CommandClientBuilder enableTyping(boolean sendTyping) {
+        checkMutability();
+        ((MutableCommandClientConfiguration) configuration).setSendTyping(sendTyping);
+        return this;
+    }
+
+    /**
+     * Let the bot always accept the default prefix even if there is a custom one.
+     *
+     * @param alwaysDefaultPrefix whether this should get enabled or not
+     * @return the {@link CommandClientBuilder}
+     * @throws IllegalStateException if the stored {@link CommandClientConfiguration} is a {@link me.schlaubi.regnumutils.command.configuration.ImmutableCommandClientConfiguration}
+     * @see CommandClientConfiguration#getAlwaysDefaultPrefix()
+     */
+    @NotNull
+    public CommandClientBuilder enableDefaultPrefixOverride(boolean alwaysDefaultPrefix) {
+        checkMutability();
+        ((MutableCommandClientConfiguration) configuration).alwaysAcceptDefaultPrefix(alwaysDefaultPrefix);
+        return this;
+    }
+
+    /**
+     * Returns the information provider.
+     *
+     * @return the {@link InformationProvider}
+     * @see InformationProvider for more information
+     */
+    public InformationProvider getInformationProvider() {
+        return informationProvider;
+    }
+
+    /**
+     * Sets the information provider.
+     *
+     * @param informationProvider the {@link InformationProvider}
+     * @return the {@link CommandClientBuilder}
+     * @see InformationProvider for more information
+     */
+    @NotNull
+    public CommandClientBuilder setInformationProvider(InformationProvider informationProvider) {
+        this.informationProvider = informationProvider;
+        return this;
+    }
+
+    private void checkMutability() {
+        Preconditions.checkState(configuration instanceof MutableCommandClientConfiguration,
                 "CommandClientConfiguration must be mutable for helper methods!");
     }
 
-    private void activate(CommandClient commandClient, JDA jda) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+    private CommandClient activate(CommandClient commandClient) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         var listener = commandListener.getConstructor(CommandClient.class).newInstance(commandClient);
-        jda.addEventListener(listener);
+        eventRegistry.addEventListeners(listener);
+        return commandClient;
+    }
+
+    /**
+     * Represents an registry for listeners.
+     * Used to register the {@link CommandListenerBase}.
+     */
+    private interface EventRegistry {
+        /**
+         * Registers event listeners
+         *
+         * @param listeners an array of event listeners
+         */
+        void addEventListeners(Object... listeners);
     }
 
     /**
@@ -264,6 +439,18 @@ public class CommandClientBuilder {
      */
     @NotNull
     public CommandClient build() {
-        throw new UnsupportedOperationException();
+        Preconditions.checkNotNull(informationProvider, "Information provider cannot be null!");
+        try {
+            return activate(new CommandClientImpl(
+                    executor,
+                    configuration instanceof MutableCommandClientConfiguration ?
+                            ((MutableCommandClientConfiguration) configuration).toImmutableCommandClientConfiguration() : configuration,
+                    commands,
+                    permissionHandler,
+                    informationProvider
+            ));
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
+            throw new RuntimeException("Could not build listener!", e);
+        }
     }
 }

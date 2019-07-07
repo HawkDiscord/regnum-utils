@@ -33,10 +33,27 @@ class MutableCommandClientConfiguration : CommandClientConfiguration {
         get() = _sendTyping
     override val acceptMentionPrefix: Boolean
         get() = _acceptMentionPrefix
+    override val ownerPermission: Boolean
+        get() = _ownerPermission
+    override val defaultPrefix: String
+        get() = _defaultPrefix
+    override val alwaysDefaultPrefix: Boolean
+        get() = _alwaysDefaultPrefix
+
+    override val owners: MutableList<Long>
+        get() = _owners
 
     private var _sendTyping = true
 
     private var _acceptMentionPrefix = true
+
+    private var _ownerPermission = true
+
+    private var _defaultPrefix = "!"
+
+    private var _alwaysDefaultPrefix = false
+
+    private var _owners = mutableListOf<Long>()
 
     /**
      * A function that build a permission error message
@@ -49,7 +66,7 @@ class MutableCommandClientConfiguration : CommandClientConfiguration {
      * @param sendTyping the new value
      */
     fun setSendTyping(sendTyping: Boolean) {
-        this._sendTyping = sendTyping;
+        this._sendTyping = sendTyping
     }
 
     /**
@@ -58,6 +75,22 @@ class MutableCommandClientConfiguration : CommandClientConfiguration {
      */
     fun setAcceptMentionPrefix(acceptMentionPrefix: Boolean) {
         this._acceptMentionPrefix = acceptMentionPrefix
+    }
+
+    fun setOwnerPermission(ownerPermission: Boolean) {
+        this._ownerPermission = ownerPermission
+    }
+
+    fun setDefaultPrefix(prefix: String) {
+        this._defaultPrefix = defaultPrefix
+    }
+
+    fun alwaysAcceptDefaultPrefix(alwaysAcceptDefaultPrefix: Boolean) {
+        this._alwaysDefaultPrefix = alwaysDefaultPrefix
+    }
+
+    fun setOwners(owners: MutableList<Long>) {
+        this._owners = owners
     }
 
     /**
@@ -73,6 +106,6 @@ class MutableCommandClientConfiguration : CommandClientConfiguration {
      * Converts this into an [ImmutableCommandClientConfiguration].
      */
     fun toImmutableCommandClientConfiguration() = ImmutableCommandClientConfiguration(
-        sendTyping, acceptMentionPrefix, messageBuilder
+        sendTyping, acceptMentionPrefix, messageBuilder, ownerPermission, defaultPrefix, alwaysDefaultPrefix, owners
     )
 }

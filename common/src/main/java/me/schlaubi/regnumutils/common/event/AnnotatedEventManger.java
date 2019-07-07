@@ -17,7 +17,21 @@
  * along with this program.  If not, see https://www.gnu.org/licenses/.
  */
 
-package me.schlaubi.regnumutils.command.spi.permission
+package me.schlaubi.regnumutils.common.event;
 
-class GroupPermissions : Permissions {
+import cc.hawkbot.regnum.util.DefaultThreadFactory;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+@SuppressWarnings({"WeakerAccess", "unused"})
+public class AnnotatedEventManger extends JDAEventMangerAdapter {
+
+    public AnnotatedEventManger() {
+        this(Executors.newCachedThreadPool(new DefaultThreadFactory(("EventPool"))));
+    }
+
+    public AnnotatedEventManger(ExecutorService executorService) {
+        super(new cc.hawkbot.regnum.client.event.impl.AnnotatedEventManger(executorService));
+    }
 }

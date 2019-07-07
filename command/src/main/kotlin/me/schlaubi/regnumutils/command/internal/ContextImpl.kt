@@ -25,7 +25,7 @@ import me.schlaubi.regnumutils.command.spi.Command
 import me.schlaubi.regnumutils.command.spi.Context
 import net.dv8tion.jda.api.entities.Message
 
-class ContextImpl(
+internal class ContextImpl(
     override val command: Command,
     override val args: Arguments,
     override val message: Message,

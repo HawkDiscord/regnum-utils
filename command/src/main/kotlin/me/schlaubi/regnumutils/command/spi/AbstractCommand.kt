@@ -19,4 +19,46 @@
 
 package me.schlaubi.regnumutils.command.spi
 
-abstract class AbstractCommand : Command
+import me.schlaubi.regnumutils.command.spi.permission.Permissions
+import me.schlaubi.regnumutils.command.util.put
+
+/**
+ * Normal command interface.
+ * @property displayName name for command in help messages
+ * @property permissions the command's [Permissions]
+ * @property aliases the command's aliases
+ * @property description the command's description
+ * @property exampleUsage the command's example usage
+ */
+abstract class AbstractCommand @JvmOverloads constructor(
+    override val displayName: String,
+    override val permissions: Permissions,
+    override val aliases: Array<String>,
+    override val description: String,
+    override val usage: String = "",
+    override val exampleUsage: String = ""
+) : Command {
+
+    final override val subCommandAssociations = mutableMapOf<String, Command>()
+
+    /**
+     * Normal command interface.
+     * @property displayName name for command in help messages
+     * @property permissions the command's [Permissions]
+     * @property alias the command's invoke
+     * @property description the command's description
+     * @property exampleUsage the command's example usage
+     */
+    constructor(
+        displayName: String,
+        permissions: Permissions,
+        alias: String,
+        description: String,
+        exampleUsage: String = ""
+    ) : this(displayName, permissions, arrayOf(alias), description, exampleUsage)
+
+    override fun registerSubCommand(subCommand: SubCommand) {
+        subCommand.parent = this
+        subCommandAssociations.put(subCommand)
+    }
+}

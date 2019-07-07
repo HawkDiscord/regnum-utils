@@ -22,9 +22,14 @@ package me.schlaubi.regnumutils.common.formatting;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.function.Function;
+
 /**
  * Some useful formatting helpers.
  */
+@SuppressWarnings("unused")
 public class FormatUtil {
 
     /**
@@ -53,5 +58,46 @@ public class FormatUtil {
                     + " permission";
         }
         return string;
+    }
+
+    /**
+     * Formats an {@link Iterable} like {@code `element1, element2`}
+     * @param iterable the iterable
+     * @return the formatted String
+     */
+    public static String formatSingleCodeBlockCollection(Iterable<CharSequence> iterable) {
+        return formatCollection(iterable, "`", ", ", "`");
+    }
+
+    /**
+     * Formats an {@link Iterable} like {@code `element1`, `element2`}
+     * @param iterable the iterable
+     * @return the formatted String
+     */
+    public static String formatMultiCodeBlockCollection(Iterable<CharSequence> iterable) {
+        return formatCollection(iterable, "`", "`, `", "`");
+    }
+
+    /**
+     * Formats an {@link Iterable}.
+     * @param collection the iterable
+     * @param prefix a {@link CharSequence} that gets put at the start of the formatted collection
+     * @param suffix a {@link CharSequence} that gets put at the end of the formatted collection
+     * @param separator a {@link CharSequence} that separates the elements
+     * @return the formatted String
+     */
+    @SuppressWarnings("WeakerAccess")
+    public static String formatCollection(Iterable<CharSequence> collection, CharSequence prefix, CharSequence separator, CharSequence suffix) {
+        var buf = new StringBuilder();
+        buf.append(prefix);
+        var iterator = collection.iterator();
+        while (iterator.hasNext()) {
+            buf.append(iterator.next());
+            if (iterator.hasNext()) {
+                buf.append(separator);
+            }
+        }
+        buf.append(suffix);
+        return buf.toString();
     }
 }

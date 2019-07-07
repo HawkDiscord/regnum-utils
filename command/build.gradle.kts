@@ -25,6 +25,13 @@ dependencies {
 
     compile(project(":common"))
 
+    compile(kotlin("stdlib-jdk8"))
+
+    //Tests
+    testCompile("org.slf4j", "slf4j-simple", "1.7.26")
+    testCompile("junit", "junit", "4.12")
+    testCompile("org.mockito:mockito-core:2.28.2")
+
 }
 
 val sourcesJar by tasks.creating(Jar::class)
@@ -35,10 +42,10 @@ bintray {
     key = System.getenv("BINTRAY_KEY")
     pkg(delegateClosureOf<BintrayExtension.PackageConfig> {
         repo = "maven"
-        name = "regnum-utils-command"
+        name = "regnum-util-command"
         userOrg = "hawk"
         setLicenses("GPL-3.0")
-        vcsUrl = "https://github.com/HawkDiscord/regnum-utils.git"
+        vcsUrl = "https://github.com/HawkDiscord/regnum-util.git"
         version(delegateClosureOf<BintrayExtension.VersionConfig> {
             name = project.version as String
         })
@@ -86,7 +93,7 @@ tasks {
         impliedPlatforms = mutableListOf("JVM")
         linkMapping {
             dir = "./"
-            url = "https://github.com/HawkDiscord/regnum-utils/tree/master"
+            url = "https://github.com/HawkDiscord/regnum-util/tree/master"
             suffix = "#L"
         }
         externalDocumentationLink {

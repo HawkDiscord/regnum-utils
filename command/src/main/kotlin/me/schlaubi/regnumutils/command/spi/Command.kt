@@ -21,6 +21,9 @@ package me.schlaubi.regnumutils.command.spi
 
 import me.schlaubi.regnumutils.command.spi.permission.Permissions
 
+/**
+ * Command interface.
+ */
 @Suppress("unused")
 interface Command {
 
@@ -28,6 +31,12 @@ interface Command {
      * The display name of the command in help messages.
      */
     val displayName: String
+
+    /**
+     * The first alias of the command.
+     */
+    val name: String
+        get() = aliases.first()
 
     /**
      * The [Permissions]s that are needed to execute that command.
@@ -45,6 +54,11 @@ interface Command {
     val description: String
 
     /**
+     * The usage of the command.
+     */
+    val usage: String
+
+    /**
      * An example of how to use the command.
      */
     val exampleUsage: String
@@ -52,9 +66,9 @@ interface Command {
     /**
      * The commands sub-commands.
      */
-    val subCommands: List<SubCommand>
+    val subCommandAssociations: Map<String, Command>
 
-    fun hasSubCommands() = !subCommands.isEmpty()
+    fun hasSubCommands() = !subCommandAssociations.isEmpty()
 
     /**
      * The main method of the command.
@@ -69,8 +83,8 @@ interface Command {
     fun registerSubCommand(subCommand: SubCommand)
 
     /**
-     * Registers the [subCommands].
+     * Registers the [subCommandAssociations].
      */
-    fun registerSubCommands(vararg subCommand: SubCommand) = subCommands.forEach(this::registerSubCommand)
+    fun registerSubCommands(vararg subCommands: SubCommand) = subCommands.forEach(this::registerSubCommand)
 
 }

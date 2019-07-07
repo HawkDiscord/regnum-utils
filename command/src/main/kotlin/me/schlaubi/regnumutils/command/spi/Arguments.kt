@@ -36,6 +36,12 @@ interface Arguments : Iterable<String> {
     val array: Array<String>
 
     /**
+     * The amount of arguments.
+     */
+    val size: Int
+        get() = list.size
+
+    /**
      * Returns the argument at the specified [index].
      */
     operator fun get(index: Int) = list.get(index)
@@ -86,7 +92,6 @@ interface Arguments : Iterable<String> {
      *
      * @sample samples.collections.Collections.Transformations.joinToString
      */
-
     fun string(
         from: Int,
         to: Int,
@@ -106,7 +111,6 @@ interface Arguments : Iterable<String> {
      *
      * @sample samples.collections.Collections.Transformations.joinToString
      */
-
     fun string(
         to: Int,
         separator: CharSequence = ", ",
@@ -122,12 +126,19 @@ interface Arguments : Iterable<String> {
     override operator fun iterator() = list.iterator()
 
     /**
+     * Whether there are arguments or not.
+     */
+    fun isEmpty() = list.isEmpty()
+
+    /**
      * Returns an [Iterator] for all arguments in the [from] [to] range.
      */
     fun iterator(from: Int, to: Int) = list(from, to).iterator()
+
 
     /**
      * Returns an [Iterator] for all arguments in the 0 [to] range.
      */
     fun iterator(to: Int) = list(to).iterator()
+
 }

@@ -44,10 +44,10 @@ bintray {
     key = System.getenv("BINTRAY_KEY")
     pkg(delegateClosureOf<BintrayExtension.PackageConfig> {
         repo = "maven"
-        name = "regnum-utils-common"
+        name = "regnum-util-common"
         userOrg = "hawk"
         setLicenses("GPL-3.0")
-        vcsUrl = "https://github.com/HawkDiscord/regnum-utils.git"
+        vcsUrl = "https://github.com/HawkDiscord/regnum-util.git"
         version(delegateClosureOf<BintrayExtension.VersionConfig> {
             name = project.version as String
         })
@@ -95,7 +95,7 @@ tasks {
         impliedPlatforms = mutableListOf("JVM")
         linkMapping {
             dir = "./"
-            url = "https://github.com/HawkDiscord/regnum-utils/tree/master"
+            url = "https://github.com/HawkDiscord/regnum-util/tree/master"
             suffix = "#L"
         }
         externalDocumentationLink {

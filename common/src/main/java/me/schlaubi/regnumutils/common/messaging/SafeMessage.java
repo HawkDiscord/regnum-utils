@@ -45,7 +45,7 @@ import java.util.function.Supplier;
 /**
  * Util to send messages safely without risking {@link InsufficientPermissionException}s
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
+@SuppressWarnings({"unused", "WeakerAccess", "CanBeFinal"})
 public class SafeMessage {
 
     /**
@@ -58,6 +58,7 @@ public class SafeMessage {
      * @see SafeMessage#sendMessage(EmbedBuilder, TextChannel, long, TimeUnit)
      * @see SafeMessage#sendMessage(MessageEmbed, TextChannel, long, TimeUnit)
      */
+    @SuppressWarnings("CanBeFinal")
     @NotNull
     private static Runnable DEFAULT_ERROR_HANDLER = () -> {
     };

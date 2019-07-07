@@ -17,17 +17,30 @@
  * along with this program.  If not, see https://www.gnu.org/licenses/.
  */
 
-package me.schlaubi.regnumutils.command.spi.permission
+package me.schlaubi.regnumutils.command.util
 
-import me.schlaubi.regnumutils.command.spi.Context
+import me.schlaubi.regnumutils.command.CommandClient
+import me.schlaubi.regnumutils.command.spi.Command
+import net.dv8tion.jda.api.entities.ISnowflake
 
 /**
- * Decides who is allowed to execute a command
+ * Adds all the aliases pointing to the [command] into the map.
  */
-interface PermissionHandler {
+fun MutableMap<String, Command>.put(command: Command) = command.aliases.forEach { put(it, command) }
 
+/**
+ * Checks whether the snowflakes id is in the [commandClient]'s bot owners list or not.
+ */
+fun ISnowflake.isBotOwner(commandClient: CommandClient) = idLong in commandClient.config.owners
+
+/**
+ * Extension wrapper.
+ */
+@Suppress("unused")
+object Extensions {
     /**
-     * @return Whether the command can be excecuted in this [context] or not
+     * @see ISnowflake.isBotOwner
      */
-    fun isCovered(context: Context): Boolean
+    @JvmStatic
+    fun isBotOwner(snowflake: ISnowflake, commandClient: CommandClient) = snowflake.isBotOwner(commandClient)
 }

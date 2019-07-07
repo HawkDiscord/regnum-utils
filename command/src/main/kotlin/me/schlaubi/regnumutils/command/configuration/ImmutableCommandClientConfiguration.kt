@@ -31,7 +31,9 @@ import net.dv8tion.jda.api.entities.Message
 class ImmutableCommandClientConfiguration(
     override val sendTyping: Boolean,
     override val acceptMentionPrefix: Boolean,
-    val messageBuilder: (Context) -> Message
+    val messageBuilder: (Context) -> Message, override val ownerPermission: Boolean,
+    override val defaultPrefix: String,
+    override val alwaysDefaultPrefix: Boolean, override val owners: List<Long>
 ) : CommandClientConfiguration {
 
     override fun buildPermissionErrorMessage(context: Context) = messageBuilder(context)

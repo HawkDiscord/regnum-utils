@@ -52,6 +52,7 @@ class GameAnimator internal constructor(
      * Starts the animator.
      * @return a [ScheduledFuture] representing the task
      */
+    @Suppress("MemberVisibilityCanBePrivate")
     fun start(): ScheduledFuture<*> = scheduler.scheduleAtFixedRate(this::animate, initialDelay, interval, unit)
 
     /**

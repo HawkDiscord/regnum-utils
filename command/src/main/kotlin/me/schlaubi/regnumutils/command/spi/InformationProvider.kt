@@ -19,37 +19,21 @@
 
 package me.schlaubi.regnumutils.command.spi
 
-import me.schlaubi.regnumutils.command.spi.permission.Permissions
+import net.dv8tion.jda.api.entities.Guild
+import net.dv8tion.jda.api.entities.Member
 
 /**
- * Representation of a sub-command.
- * @see AbstractCommand
- * @see Command
+ * Provider for some information.
  */
-abstract class SubCommand @JvmOverloads constructor(
-    displayName: String,
-    permissions: Permissions,
-    aliases: Array<String>,
-    description: String,
-    usage: String = "",
-    exampleUsage: String = ""
-) : AbstractCommand(displayName, permissions, aliases, description, usage, exampleUsage) {
+interface InformationProvider {
 
     /**
-     * @see AbstractCommand
+     * Whether the [member] is a bot owner or not.
      */
-    @JvmOverloads
-    constructor(
-        displayName: String,
-        permissions: Permissions,
-        alias: String,
-        description: String,
-        usage: String = "",
-        exampleUsage: String = ""
-    ) : this(displayName, permissions, arrayOf(alias), description, usage, exampleUsage)
+    fun isOwner(member: Member): Boolean
 
     /**
-     * The commands parent
+     * The custom prefix for the [guild] or `null` if there is no custom prefix.
      */
-    lateinit var parent: Command
+    fun getPrefix(guild: Guild): String?
 }

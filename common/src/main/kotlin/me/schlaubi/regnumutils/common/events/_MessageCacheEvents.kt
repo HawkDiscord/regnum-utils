@@ -36,7 +36,7 @@ sealed class GenericMessageCacheEvent(
     responseNumber: Long,
     messageId: Long,
     channel: TextChannel,
-    val oldMessage: Message?
+    @Suppress("MemberVisibilityCanBePrivate") val oldMessage: Message?
 ) :
     GenericGuildMessageEvent(api, responseNumber, messageId, channel)
 
