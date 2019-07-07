@@ -73,9 +73,9 @@ public class CommandFormatter {
         } else {
             embed.addField("Type", "Command", true);
         }
-        embed.addField("Usage", usageBase + command.getUsage(), false);
-        if (!command.getExampleUsage().isEmpty() && !command.getExampleUsage().isBlank()) {
-            embed.addField("Example Usage", usageBase + command.getExampleUsage(), false);
+        embed.addField("Usage", usageBase + command.getUsage().trim(), false);
+        if (isPresent(command.getExampleUsage())) {
+            embed.addField("Example Usage", usageBase + command.getExampleUsage().trim(), false);
         }
 
         if (command.hasSubCommands()) {
@@ -98,6 +98,10 @@ public class CommandFormatter {
             embed.addField("Subcommands", buf.toString(), false);
         }
         return embed;
+    }
+
+    private static boolean isPresent(String usage) {
+        return !usage.isEmpty() && !usage.isBlank();
     }
 
     private static String formatUsageBase(CharSequence prefix, Command command) {
