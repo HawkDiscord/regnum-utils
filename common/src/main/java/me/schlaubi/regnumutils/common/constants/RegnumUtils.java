@@ -27,7 +27,7 @@ public class RegnumUtils {
 
     public static final String AUTHOR = "Michael \"Schlaubi\" Rittmeister";
 
-    public static final String VERSION = "1.0.1-SNAPSHOT";
+    public static final String VERSION = "1.2.0-SNAPSHOT";
 
     public static final String GITHUB = "https://github.com/HawkDiscord/regnum-utils.git";
 }

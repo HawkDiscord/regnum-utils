@@ -110,7 +110,7 @@ interface Context {
      * @see SafeMessage.sendMessage
      */
     fun respond(content: String, delay: Long, unit: TimeUnit = TimeUnit.SECONDS) =
-        SafeMessage.sendMessage(content, channel, this::notifyUserAboutPermissionError, delay, unit)
+        SafeMessage.sendMessage(channel, content, this::notifyUserAboutPermissionError, delay, unit)
 
     /**
      * @see SafeMessage.sendMessage
@@ -121,7 +121,7 @@ interface Context {
      * @see SafeMessage.sendMessage
      */
     fun respond(embed: MessageEmbed, delay: Long, unit: TimeUnit = TimeUnit.SECONDS) =
-        SafeMessage.sendMessage(embed, channel, this::notifyUserAboutPermissionError, delay, unit)
+        SafeMessage.sendMessage(channel, embed, this::notifyUserAboutPermissionError, delay, unit)
 
     /**
      * @see SafeMessage.sendMessage
@@ -132,7 +132,7 @@ interface Context {
      * @see SafeMessage.sendMessage
      */
     fun respond(embedBuilder: EmbedBuilder, delay: Long, unit: TimeUnit = TimeUnit.SECONDS) =
-        SafeMessage.sendMessage(embedBuilder, channel, this::notifyUserAboutPermissionError, delay, unit)
+        SafeMessage.sendMessage(channel, embedBuilder, this::notifyUserAboutPermissionError, delay, unit)
 
 
     /**

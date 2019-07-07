@@ -14,7 +14,7 @@ plugins {
 }
 
 group = "me.schlaubi.regnumutils"
-version = "1.1.0-SNAPSHOT"
+version = "1.2.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -87,7 +87,7 @@ publishing {
 
 tasks {
     dokka {
-        moduleName = "common"
+        moduleName = "command"
         outputDirectory = "${project.parent!!.projectDir}/docs"
         // Oracle broke it
         noJdkLink = true

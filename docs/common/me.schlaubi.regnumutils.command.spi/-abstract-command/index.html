@@ -1,0 +1,146 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AbstractCommand - common</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">common</a>&nbsp;/&nbsp;<a href="../index.html">me.schlaubi.regnumutils.command.spi</a>&nbsp;/&nbsp;<a href="./index.html">AbstractCommand</a><br/>
+<br/>
+<h1>AbstractCommand</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">AbstractCommand</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-command/index.html"><span class="identifier">Command</span></a></code> <a href="https://github.com/HawkDiscord/regnum-utils/tree/master/command/src/main/kotlin/me/schlaubi/regnumutils/command/spi/AbstractCommand.kt#L33">(source)</a>
+<p>Normal command interface.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">AbstractCommand</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.AbstractCommand$<init>(kotlin.String, me.schlaubi.regnumutils.command.spi.permission.Permissions, kotlin.String, kotlin.String, kotlin.String)/displayName">displayName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.AbstractCommand$<init>(kotlin.String, me.schlaubi.regnumutils.command.spi.permission.Permissions, kotlin.String, kotlin.String, kotlin.String)/permissions">permissions</span><span class="symbol">:</span>&nbsp;<a href="../../me.schlaubi.regnumutils.command.spi.permission/-permissions/index.html"><span class="identifier">Permissions</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.AbstractCommand$<init>(kotlin.String, me.schlaubi.regnumutils.command.spi.permission.Permissions, kotlin.String, kotlin.String, kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.AbstractCommand$<init>(kotlin.String, me.schlaubi.regnumutils.command.spi.permission.Permissions, kotlin.String, kotlin.String, kotlin.String)/description">description</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.AbstractCommand$<init>(kotlin.String, me.schlaubi.regnumutils.command.spi.permission.Permissions, kotlin.String, kotlin.String, kotlin.String)/exampleUsage">exampleUsage</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span></code><br/>
+<code><span class="identifier">AbstractCommand</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.AbstractCommand$<init>(kotlin.String, me.schlaubi.regnumutils.command.spi.permission.Permissions, kotlin.Array((kotlin.String)), kotlin.String, kotlin.String)/displayName">displayName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.AbstractCommand$<init>(kotlin.String, me.schlaubi.regnumutils.command.spi.permission.Permissions, kotlin.Array((kotlin.String)), kotlin.String, kotlin.String)/permissions">permissions</span><span class="symbol">:</span>&nbsp;<a href="../../me.schlaubi.regnumutils.command.spi.permission/-permissions/index.html"><span class="identifier">Permissions</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.AbstractCommand$<init>(kotlin.String, me.schlaubi.regnumutils.command.spi.permission.Permissions, kotlin.Array((kotlin.String)), kotlin.String, kotlin.String)/aliases">aliases</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.AbstractCommand$<init>(kotlin.String, me.schlaubi.regnumutils.command.spi.permission.Permissions, kotlin.Array((kotlin.String)), kotlin.String, kotlin.String)/description">description</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.AbstractCommand$<init>(kotlin.String, me.schlaubi.regnumutils.command.spi.permission.Permissions, kotlin.Array((kotlin.String)), kotlin.String, kotlin.String)/exampleUsage">exampleUsage</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span></code>
+<p>Normal command interface.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="aliases.html">aliases</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">aliases</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code>
+<p>the command's aliases</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="description.html">description</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">description</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>the command's description</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="display-name.html">displayName</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">displayName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>name for command in help messages</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="example-usage.html">exampleUsage</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">exampleUsage</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>the command's example usage</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="permissions.html">permissions</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">permissions</span><span class="symbol">: </span><a href="../../me.schlaubi.regnumutils.command.spi.permission/-permissions/index.html"><span class="identifier">Permissions</span></a></code>
+<p>the command's <a href="../../me.schlaubi.regnumutils.command.spi.permission/-permissions/index.html">Permissions</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="sub-command-associations.html">subCommandAssociations</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">subCommandAssociations</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html"><span class="identifier">MutableMap</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="../-command/index.html"><span class="identifier">Command</span></a><span class="symbol">&gt;</span></code>
+<p>The commands sub-commands.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="register-sub-command.html">registerSubCommand</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">registerSubCommand</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.AbstractCommand$registerSubCommand(me.schlaubi.regnumutils.command.spi.SubCommand)/subCommand">subCommand</span><span class="symbol">:</span>&nbsp;<a href="../-sub-command/index.html"><span class="identifier">SubCommand</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Registers the <a href="../-command/register-sub-command.html#me.schlaubi.regnumutils.command.spi.Command$registerSubCommand(me.schlaubi.regnumutils.command.spi.SubCommand)/subCommand">subCommand</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-command/has-sub-commands.html">hasSubCommands</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">hasSubCommands</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-command/process.html">process</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">process</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.Command$process(me.schlaubi.regnumutils.command.spi.Arguments, me.schlaubi.regnumutils.command.spi.Context)/args">args</span><span class="symbol">:</span>&nbsp;<a href="../-arguments/index.html"><span class="identifier">Arguments</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.Command$process(me.schlaubi.regnumutils.command.spi.Arguments, me.schlaubi.regnumutils.command.spi.Context)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../-context/index.html"><span class="identifier">Context</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>The main method of the command.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-command/register-sub-commands.html">registerSubCommands</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">registerSubCommands</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="me.schlaubi.regnumutils.command.spi.Command$registerSubCommands(kotlin.Array((me.schlaubi.regnumutils.command.spi.SubCommand)))/subCommands">subCommands</span><span class="symbol">:</span>&nbsp;<a href="../-sub-command/index.html"><span class="identifier">SubCommand</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Registers the <a href="../-command/sub-command-associations.html">subCommandAssociations</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-sub-command/index.html">SubCommand</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">SubCommand</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AbstractCommand</span></a></code>
+<p>Representation of a sub-command.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
