@@ -22,7 +22,6 @@
 package me.schlaubi.regnumutils.common.event
 
 import cc.hawkbot.regnum.client.event.ListenerAdapter
-import cc.hawkbot.regnum.waiter.EventWaiter
 import net.dv8tion.jda.api.events.GenericEvent
 import net.dv8tion.jda.api.hooks.EventListener
 

@@ -54,7 +54,6 @@ public class CommandFormatter {
     }
 
     @NotNull
-    @SuppressWarnings("WeakerAccess")
     public static EmbedBuilder formatCommand(
             @NotNull CharSequence prefix,
             @NotNull Command command
@@ -111,7 +110,7 @@ public class CommandFormatter {
             var index = prefix.length();
             String alias = currentCommand.getName();
             buf.insert(index, alias);
-            if (currentCommand != command) {
+            if (!currentCommand.equals(command)) {
                 buf.insert(index + alias.length(), ' ');
             }
             currentCommand = currentCommand instanceof SubCommand ? ((SubCommand) currentCommand).getParent() : null;

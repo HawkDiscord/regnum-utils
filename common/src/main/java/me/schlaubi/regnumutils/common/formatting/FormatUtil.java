@@ -22,10 +22,6 @@ package me.schlaubi.regnumutils.common.formatting;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.function.Function;
-
 /**
  * Some useful formatting helpers.
  */

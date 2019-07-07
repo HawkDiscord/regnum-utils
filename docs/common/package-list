@@ -1,5 +1,7 @@
 $dokka.format:html
 $dokka.linkExtension:html
+$dokka.location:me.schlaubi.regnumutils.command.util$isBotOwner(net.dv8tion.jda.api.entities.ISnowflake, me.schlaubi.regnumutils.command.CommandClient)me.schlaubi.regnumutils.command.util/net.dv8tion.jda.api.entities.-i-snowflake/is-bot-owner.html
+$dokka.location:me.schlaubi.regnumutils.command.util$put(kotlin.collections.MutableMap((kotlin.String, me.schlaubi.regnumutils.command.spi.Command)), me.schlaubi.regnumutils.command.spi.Command)me.schlaubi.regnumutils.command.util/kotlin.collections.-mutable-map/put.html
 $dokka.location:me.schlaubi.regnumutils.command.utils$isBotOwner(net.dv8tion.jda.api.entities.ISnowflake, me.schlaubi.regnumutils.command.CommandClient)me.schlaubi.regnumutils.command.utils/net.dv8tion.jda.api.entities.-i-snowflake/is-bot-owner.html
 $dokka.location:me.schlaubi.regnumutils.command.utils$put(kotlin.collections.MutableMap((kotlin.String, me.schlaubi.regnumutils.command.spi.Command)), me.schlaubi.regnumutils.command.spi.Command)me.schlaubi.regnumutils.command.utils/kotlin.collections.-mutable-map/put.html
 me.schlaubi.regnumutils.command
@@ -9,4 +11,5 @@ me.schlaubi.regnumutils.command.internal
 me.schlaubi.regnumutils.command.listener
 me.schlaubi.regnumutils.command.spi
 me.schlaubi.regnumutils.command.spi.permission
+me.schlaubi.regnumutils.command.util
 me.schlaubi.regnumutils.command.utils

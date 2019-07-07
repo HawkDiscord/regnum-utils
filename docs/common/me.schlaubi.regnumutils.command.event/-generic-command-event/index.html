@@ -8,9 +8,39 @@
 <a href="../../index.html">common</a>&nbsp;/&nbsp;<a href="../index.html">me.schlaubi.regnumutils.command.event</a>&nbsp;/&nbsp;<a href="./index.html">GenericCommandEvent</a><br/>
 <br/>
 <h1>GenericCommandEvent</h1>
-<a name="me.schlaubi.regnumutils.command.event.GenericCommandEvent"></a>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">GenericCommandEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GenericGuildEvent</span></code> <a href="https://github.com/HawkDiscord/regnum-utils/tree/master/command/src/main/java/me/schlaubi/regnumutils/command/event/GenericCommandEvent.java#L30">(source)</a><br/>
-<a name="me.schlaubi.regnumutils.command.event.GenericCommandEvent"></a>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">GenericCommandEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GenericGuildEvent</span></code> <a href="https://github.com/HawkDiscord/regnum-utils/tree/master/command/src/main/java/me/schlaubi/regnumutils/command/event/GenericCommandEvent.java#L30">(source)</a>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">GenericCommandEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GenericGuildEvent</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">GenericCommandEvent</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.event.GenericCommandEvent$<init>(net.dv8tion.jda.api.JDA, kotlin.Long, net.dv8tion.jda.api.entities.Guild, me.schlaubi.regnumutils.command.spi.Command)/api">api</span><span class="symbol">:</span>&nbsp;<span class="identifier">JDA</span><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.event.GenericCommandEvent$<init>(net.dv8tion.jda.api.JDA, kotlin.Long, net.dv8tion.jda.api.entities.Guild, me.schlaubi.regnumutils.command.spi.Command)/responseNumber">responseNumber</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.event.GenericCommandEvent$<init>(net.dv8tion.jda.api.JDA, kotlin.Long, net.dv8tion.jda.api.entities.Guild, me.schlaubi.regnumutils.command.spi.Command)/guild">guild</span><span class="symbol">:</span>&nbsp;<span class="identifier">Guild</span><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.event.GenericCommandEvent$<init>(net.dv8tion.jda.api.JDA, kotlin.Long, net.dv8tion.jda.api.entities.Guild, me.schlaubi.regnumutils.command.spi.Command)/command">command</span><span class="symbol">:</span>&nbsp;<a href="../../me.schlaubi.regnumutils.command.spi/-command/index.html"><span class="identifier">Command</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-command-permission-violation-event/index.html">CommandPermissionViolationEvent</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">CommandPermissionViolationEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">GenericCommandEvent</span></a></code>
+<p>Event that is getting fired whenever someone tries to execute a command without having the needed permissions.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-generic-command-context-event/index.html">GenericCommandContextEvent</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">GenericCommandContextEvent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">GenericCommandEvent</span></a></code></td>
+</tr>
+</tbody>
+</table>
 </BODY>
 </HTML>
