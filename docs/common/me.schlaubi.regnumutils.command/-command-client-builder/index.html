@@ -8,9 +8,235 @@
 <a href="../../index.html">common</a>&nbsp;/&nbsp;<a href="../index.html">me.schlaubi.regnumutils.command</a>&nbsp;/&nbsp;<a href="./index.html">CommandClientBuilder</a><br/>
 <br/>
 <h1>CommandClientBuilder</h1>
-<a name="me.schlaubi.regnumutils.command.CommandClientBuilder"></a>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">CommandClientBuilder</span></code> <a href="https://github.com/HawkDiscord/regnum-utils/tree/master/command/src/main/java/me/schlaubi/regnumutils/command/CommandClientBuilder.java#L52">(source)</a><br/>
-<a name="me.schlaubi.regnumutils.command.CommandClientBuilder"></a>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">CommandClientBuilder</span></code> <a href="https://github.com/HawkDiscord/regnum-utils/tree/master/command/src/main/java/me/schlaubi/regnumutils/command/CommandClientBuilder.java#L52">(source)</a>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">CommandClientBuilder</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">CommandClientBuilder</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$<init>(net.dv8tion.jda.api.JDA)/jda">jda</span><span class="symbol">:</span>&nbsp;<span class="identifier">JDA</span><span class="symbol">!</span><span class="symbol">)</span></code><br/>
+<code><span class="identifier">CommandClientBuilder</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$<init>(net.dv8tion.jda.api.sharding.ShardManager)/shardManager">shardManager</span><span class="symbol">:</span>&nbsp;<span class="identifier">ShardManager</span><span class="symbol">!</span><span class="symbol">)</span></code>
+<p>Creates a <code><a href="./index.html">CommandClientBuilder</a></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="accept-mention-prefix.html">acceptMentionPrefix</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">acceptMentionPrefix</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$acceptMentionPrefix(kotlin.Boolean)/acceptMentionPrefix">acceptMentionPrefix</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a></code>
+<p>Sets whether the bot should accept a mention as a command prefix or not.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="add-bot-owners.html">addBotOwners</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addBotOwners</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$addBotOwners(kotlin.Array((kotlin.Long)))/botOwnerIds">botOwnerIds</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addBotOwners</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$addBotOwners(kotlin.collections.MutableCollection((kotlin.Long)))/botOwnerIds">botOwnerIds</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-collection/index.html"><span class="identifier">MutableCollection</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">!</span><span class="symbol">&gt;</span><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a></code>
+<p>Adds bot owners.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="build.html">build</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">build</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-command-client/index.html"><span class="identifier">CommandClient</span></a></code>
+<p>Builds the CommandClient.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="enable-default-prefix-override.html">enableDefaultPrefixOverride</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">enableDefaultPrefixOverride</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$enableDefaultPrefixOverride(kotlin.Boolean)/alwaysDefaultPrefix">alwaysDefaultPrefix</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a></code>
+<p>Let the bot always accept the default prefix even if there is a custom one.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="enable-owner-permissions.html">enableOwnerPermissions</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">enableOwnerPermissions</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$enableOwnerPermissions(kotlin.Boolean)/ownerPermission">ownerPermission</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a></code>
+<p>Sets whether the owner should be allowed to execute all commands or not.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="enable-typing.html">enableTyping</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">enableTyping</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$enableTyping(kotlin.Boolean)/sendTyping">sendTyping</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a></code>
+<p>Lets the bot send typing before executing a command.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-command-listener.html">getCommandListener</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getCommandListener</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Class</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../me.schlaubi.regnumutils.command.listener/-command-listener-base/index.html"><span class="identifier">CommandListenerBase</span></a><span class="symbol">!</span><span class="symbol">&gt;</span></code>
+<p>Returns the Class of the currently set <code><a href="../../me.schlaubi.regnumutils.command.listener/-command-listener-base/index.html">CommandListenerBase</a></code>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-commands.html">getCommands</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getCommands</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><a href="../../me.schlaubi.regnumutils.command.spi/-command/index.html"><span class="identifier">Command</span></a><span class="symbol">!</span><span class="symbol">&gt;</span><span class="symbol">!</span></code>
+<p>Returns all currently registered commands.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-configuration.html">getConfiguration</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getConfiguration</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../me.schlaubi.regnumutils.command.configuration/-command-client-configuration/index.html"><span class="identifier">CommandClientConfiguration</span></a></code>
+<p>Returns the currently used CommandClientConfiguration.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-executor.html">getExecutor</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getExecutor</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ExecutorService</span></code>
+<p>Returns the executor used to execute <code><a href="../../me.schlaubi.regnumutils.command.spi/-command/index.html">Command</a></code>s.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-information-provider.html">getInformationProvider</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getInformationProvider</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../me.schlaubi.regnumutils.command.spi/-information-provider/index.html"><span class="identifier">InformationProvider</span></a><span class="symbol">!</span></code>
+<p>Returns the information provider.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-permission-handler.html">getPermissionHandler</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getPermissionHandler</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../me.schlaubi.regnumutils.command.spi.permission/-permission-handler/index.html"><span class="identifier">PermissionHandler</span></a></code>
+<p>Returns the currently set permission handler.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="register-commands.html">registerCommands</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">registerCommands</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$registerCommands(kotlin.Array((me.schlaubi.regnumutils.command.spi.Command)))/commands">commands</span><span class="symbol">:</span>&nbsp;<a href="../../me.schlaubi.regnumutils.command.spi/-command/index.html"><span class="identifier">Command</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">registerCommands</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$registerCommands(kotlin.collections.MutableCollection((me.schlaubi.regnumutils.command.spi.Command)))/commands">commands</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-collection/index.html"><span class="identifier">MutableCollection</span></a><span class="symbol">&lt;</span><a href="../../me.schlaubi.regnumutils.command.spi/-command/index.html"><span class="identifier">Command</span></a><span class="symbol">!</span><span class="symbol">&gt;</span><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a></code>
+<p>Registers commands without overwriting already registered command.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="send-typing.html">sendTyping</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">sendTyping</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$sendTyping(kotlin.Boolean)/sendTyping">sendTyping</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a></code>
+<p>Sets whether the bot should send typing before it parses commands or not.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-command-listener.html">setCommandListener</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setCommandListener</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$setCommandListener(java.lang.Class((me.schlaubi.regnumutils.command.listener.CommandListenerBase)))/commandListener">commandListener</span><span class="symbol">:</span>&nbsp;<span class="identifier">Class</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../me.schlaubi.regnumutils.command.listener/-command-listener-base/index.html"><span class="identifier">CommandListenerBase</span></a><span class="symbol">!</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a><span class="symbol">!</span></code>
+<p>Sets the Class of the currently set <code><a href="../../me.schlaubi.regnumutils.command.listener/-command-listener-base/index.html">CommandListenerBase</a></code>. Changing this from an <code><a href="../../me.schlaubi.regnumutils.command.listener/-message-received-command-listener/index.html">MessageReceivedCommandListener</a></code> to an <code><a href="../../me.schlaubi.regnumutils.command.listener/-message-edit-command-listener/index.html">MessageEditCommandListener</a></code> will also parse <code>MESSAGE_UPDATE</code> events as commands</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-commands.html">setCommands</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setCommands</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$setCommands(kotlin.collections.MutableList((me.schlaubi.regnumutils.command.spi.Command)))/commands">commands</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><a href="../../me.schlaubi.regnumutils.command.spi/-command/index.html"><span class="identifier">Command</span></a><span class="symbol">!</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a></code>
+<p>Sets all currently registered <code><a href="../../me.schlaubi.regnumutils.command.spi/-command/index.html">Command</a></code>s.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-configuration.html">setConfiguration</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setConfiguration</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$setConfiguration(me.schlaubi.regnumutils.command.configuration.CommandClientConfiguration)/configuration">configuration</span><span class="symbol">:</span>&nbsp;<a href="../../me.schlaubi.regnumutils.command.configuration/-command-client-configuration/index.html"><span class="identifier">CommandClientConfiguration</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a></code>
+<p>Sets the currently used CommandClientConfiguration.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-executor.html">setExecutor</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setExecutor</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$setExecutor(java.util.concurrent.ExecutorService)/executor">executor</span><span class="symbol">:</span>&nbsp;<span class="identifier">ExecutorService</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a></code>
+<p>Sets the executor used to execute <code><a href="../../me.schlaubi.regnumutils.command.spi/-command/index.html">Command</a></code>s.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-information-provider.html">setInformationProvider</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setInformationProvider</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$setInformationProvider(me.schlaubi.regnumutils.command.spi.InformationProvider)/informationProvider">informationProvider</span><span class="symbol">:</span>&nbsp;<a href="../../me.schlaubi.regnumutils.command.spi/-information-provider/index.html"><span class="identifier">InformationProvider</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a></code>
+<p>Sets the information provider.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-owners.html">setOwners</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setOwners</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$setOwners(kotlin.collections.MutableList((kotlin.Long)))/owners">owners</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">!</span><span class="symbol">&gt;</span><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a></code>
+<p>Sets the list of bot owners.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-permission-error-message-builder.html">setPermissionErrorMessageBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setPermissionErrorMessageBuilder</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$setPermissionErrorMessageBuilder(java.util.function.Function((me.schlaubi.regnumutils.command.spi.Context, net.dv8tion.jda.api.entities.Message)))/permissionErrorMessageBuilder">permissionErrorMessageBuilder</span><span class="symbol">:</span>&nbsp;<span class="identifier">Function</span><span class="symbol">&lt;</span><a href="../../me.schlaubi.regnumutils.command.spi/-context/index.html"><span class="identifier">Context</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">Message</span><span class="symbol">&gt;</span><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a></code>
+<p>Sets the builder for the permissions message that will get send to a user when <code><a href="../../me.schlaubi.regnumutils.command.spi/-context/index.html">Context</a></code>'s send methods fails.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-permission-handler.html">setPermissionHandler</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setPermissionHandler</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$setPermissionHandler(me.schlaubi.regnumutils.command.spi.permission.PermissionHandler)/permissionHandler">permissionHandler</span><span class="symbol">:</span>&nbsp;<a href="../../me.schlaubi.regnumutils.command.spi.permission/-permission-handler/index.html"><span class="identifier">PermissionHandler</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a></code>
+<p>Sets the permission handler to check if a user is allowed to execute a command.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-prefix.html">setPrefix</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setPrefix</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.CommandClientBuilder$setPrefix(kotlin.String)/prefix">prefix</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CommandClientBuilder</span></a></code>
+<p>Sets the default prefix.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </BODY>
 </HTML>

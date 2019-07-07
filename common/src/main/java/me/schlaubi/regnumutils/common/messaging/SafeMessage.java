@@ -44,7 +44,7 @@ import java.util.function.Consumer;
 /**
  * Useful util for safe message sending.
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
+@SuppressWarnings({"unused", "WeakerAccess", "CanBeFinal"})
 public class SafeMessage {
 
     /**
@@ -56,8 +56,8 @@ public class SafeMessage {
      * @see this#sendMessage(TextChannel, MessageEmbed)
      * @see this#sendMessage(TextChannel, CharSequence)
      */
-    @NotNull
     @SuppressWarnings("CanBeFinal")
+    @NotNull
     public static Runnable DEFAULT_ERROR_HANDLER = () -> {
 
     };

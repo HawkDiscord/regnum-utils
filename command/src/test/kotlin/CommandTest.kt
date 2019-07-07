@@ -47,8 +47,9 @@ class CommandTest {
     private lateinit var message: Message
 
     @Suppress("unused")
+    @Rule
+    @JvmField
     val rule: MockitoRule = MockitoJUnit.rule()
-        @Rule get() = field
 
     /**
      * Prepares the commandClient and mocks the objects
@@ -102,8 +103,10 @@ class CommandTest {
         "test",
         "Cool command"
     ) {
+        val subCommand = TestSubCommand()
+
         init {
-            registerSubCommand(TestSubCommand())
+            registerSubCommand(subCommand)
         }
 
         override fun process(args: Arguments, context: Context) {

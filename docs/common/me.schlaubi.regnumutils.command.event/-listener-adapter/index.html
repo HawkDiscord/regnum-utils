@@ -8,12 +8,70 @@
 <a href="../../index.html">common</a>&nbsp;/&nbsp;<a href="../index.html">me.schlaubi.regnumutils.command.event</a>&nbsp;/&nbsp;<a href="./index.html">ListenerAdapter</a><br/>
 <br/>
 <h1>ListenerAdapter</h1>
-<a name="me.schlaubi.regnumutils.command.event.ListenerAdapter"></a>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">ListenerAdapter</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JDAListenerAdapter</span></code> <a href="https://github.com/HawkDiscord/regnum-utils/tree/master/command/src/main/java/me/schlaubi/regnumutils/command/event/ListenerAdapter.java#L32">(source)</a><br/>
-<a name="me.schlaubi.regnumutils.command.event.ListenerAdapter"></a>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">ListenerAdapter</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JDAListenerAdapter</span></code> <a href="https://github.com/HawkDiscord/regnum-utils/tree/master/command/src/main/java/me/schlaubi/regnumutils/command/event/ListenerAdapter.java#L32">(source)</a>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">ListenerAdapter</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JDAListenerAdapter</span></code>
 <p>Extension of the <code><a href="#">JDAListenerAdapter</a></code> for command events.</p>
 <p><strong>See Also</strong><br/>
 <a href="#">JDAListenerAdapter</a><a href="#">me.schlaubi.regnumutils.common.event.InterfacedEventManager</a></p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">ListenerAdapter</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>Extension of the <code><a href="#">JDAListenerAdapter</a></code> for command events.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="on-command-execution.html">onCommandExecution</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onCommandExecution</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.event.ListenerAdapter$onCommandExecution(me.schlaubi.regnumutils.command.event.CommandExecutedEvent)/event">event</span><span class="symbol">:</span>&nbsp;<a href="../-command-executed-event/index.html"><span class="identifier">CommandExecutedEvent</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-command-fail.html">onCommandFail</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onCommandFail</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.event.ListenerAdapter$onCommandFail(me.schlaubi.regnumutils.command.event.CommandFailEvent)/event">event</span><span class="symbol">:</span>&nbsp;<a href="../-command-fail-event/index.html"><span class="identifier">CommandFailEvent</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-command-permission-violation.html">onCommandPermissionViolation</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onCommandPermissionViolation</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.event.ListenerAdapter$onCommandPermissionViolation(me.schlaubi.regnumutils.command.event.CommandPermissionViolationEvent)/event">event</span><span class="symbol">:</span>&nbsp;<a href="../-command-permission-violation-event/index.html"><span class="identifier">CommandPermissionViolationEvent</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-event.html">onEvent</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onEvent</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.event.ListenerAdapter$onEvent(kotlin.Any)/event">event</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-generic-command-context-event.html">onGenericCommandContextEvent</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onGenericCommandContextEvent</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.event.ListenerAdapter$onGenericCommandContextEvent(me.schlaubi.regnumutils.command.event.GenericCommandContextEvent)/event">event</span><span class="symbol">:</span>&nbsp;<a href="../-generic-command-context-event/index.html"><span class="identifier">GenericCommandContextEvent</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-generic-command-event.html">onGenericCommandEvent</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onGenericCommandEvent</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.event.ListenerAdapter$onGenericCommandEvent(me.schlaubi.regnumutils.command.event.GenericCommandEvent)/event">event</span><span class="symbol">:</span>&nbsp;<a href="../-generic-command-event/index.html"><span class="identifier">GenericCommandEvent</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
 </BODY>
 </HTML>

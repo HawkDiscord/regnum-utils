@@ -8,7 +8,7 @@
 <a href="../../index.html">common</a>&nbsp;/&nbsp;<a href="../index.html">me.schlaubi.regnumutils.command.spi</a>&nbsp;/&nbsp;<a href="./index.html">Context</a><br/>
 <br/>
 <h1>Context</h1>
-<code><span class="keyword">interface </span><span class="identifier">Context</span></code> <a href="https://github.com/HawkDiscord/regnum-utils/tree/master/command/src/main/kotlin/me/schlaubi/regnumutils/command/spi/Context.kt#L33">(source)</a>
+<code><span class="keyword">interface </span><span class="identifier">Context</span></code>
 <p>The context of an command execution.</p>
 <h3>Properties</h3>
 <table>
@@ -146,6 +146,15 @@
 <code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">respond</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.Context$respond(net.dv8tion.jda.api.entities.MessageEmbed, kotlin.Long, java.util.concurrent.TimeUnit)/embed">embed</span><span class="symbol">:</span>&nbsp;<span class="identifier">MessageEmbed</span><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.Context$respond(net.dv8tion.jda.api.entities.MessageEmbed, kotlin.Long, java.util.concurrent.TimeUnit)/delay">delay</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.Context$respond(net.dv8tion.jda.api.entities.MessageEmbed, kotlin.Long, java.util.concurrent.TimeUnit)/unit">unit</span><span class="symbol">:</span>&nbsp;<span class="identifier">TimeUnit</span>&nbsp;<span class="symbol">=</span>&nbsp;TimeUnit.SECONDS<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">CompletionStage</span><span class="symbol">&lt;</span><span class="identifier">Message</span><span class="symbol">!</span><span class="symbol">&gt;</span></code><br/>
 <code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">respond</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.Context$respond(net.dv8tion.jda.api.EmbedBuilder)/embedBuilder">embedBuilder</span><span class="symbol">:</span>&nbsp;<span class="identifier">EmbedBuilder</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MessageAction</span></code><br/>
 <code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">respond</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.Context$respond(net.dv8tion.jda.api.EmbedBuilder, kotlin.Long, java.util.concurrent.TimeUnit)/embedBuilder">embedBuilder</span><span class="symbol">:</span>&nbsp;<span class="identifier">EmbedBuilder</span><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.Context$respond(net.dv8tion.jda.api.EmbedBuilder, kotlin.Long, java.util.concurrent.TimeUnit)/delay">delay</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.command.spi.Context$respond(net.dv8tion.jda.api.EmbedBuilder, kotlin.Long, java.util.concurrent.TimeUnit)/unit">unit</span><span class="symbol">:</span>&nbsp;<span class="identifier">TimeUnit</span>&nbsp;<span class="symbol">=</span>&nbsp;TimeUnit.SECONDS<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">CompletionStage</span><span class="symbol">&lt;</span><span class="identifier">Message</span><span class="symbol">!</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="send-usage.html">sendUsage</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">sendUsage</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MessageAction</span></code>
+<p>Sends a usage message.</p>
+</td>
 </tr>
 </tbody>
 </table>

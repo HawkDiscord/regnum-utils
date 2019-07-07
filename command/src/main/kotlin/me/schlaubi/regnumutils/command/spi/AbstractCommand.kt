@@ -20,7 +20,7 @@
 package me.schlaubi.regnumutils.command.spi
 
 import me.schlaubi.regnumutils.command.spi.permission.Permissions
-import me.schlaubi.regnumutils.command.utils.put
+import me.schlaubi.regnumutils.command.util.put
 
 /**
  * Normal command interface.
@@ -30,11 +30,12 @@ import me.schlaubi.regnumutils.command.utils.put
  * @property description the command's description
  * @property exampleUsage the command's example usage
  */
-abstract class AbstractCommand(
+abstract class AbstractCommand @JvmOverloads constructor(
     override val displayName: String,
     override val permissions: Permissions,
     override val aliases: Array<String>,
     override val description: String,
+    override val usage: String = "",
     override val exampleUsage: String = ""
 ) : Command {
 

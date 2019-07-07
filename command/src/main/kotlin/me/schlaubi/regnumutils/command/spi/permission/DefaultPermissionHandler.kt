@@ -20,7 +20,7 @@
 package me.schlaubi.regnumutils.command.spi.permission
 
 import me.schlaubi.regnumutils.command.spi.Context
-import me.schlaubi.regnumutils.command.utils.isBotOwner
+import me.schlaubi.regnumutils.command.util.isBotOwner
 import net.dv8tion.jda.api.Permission
 
 /**

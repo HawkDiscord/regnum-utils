@@ -8,10 +8,62 @@
 <a href="../../index.html">command</a>&nbsp;/&nbsp;<a href="../index.html">me.schlaubi.regnumutils.common.formatting</a>&nbsp;/&nbsp;<a href="./index.html">FormatUtil</a><br/>
 <br/>
 <h1>FormatUtil</h1>
-<a name="me.schlaubi.regnumutils.common.formatting.FormatUtil"></a>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">FormatUtil</span></code> <a href="https://github.com/HawkDiscord/regnum-utils/tree/master/common/src/main/java/me/schlaubi/regnumutils/common/formatting/FormatUtil.java#L28">(source)</a><br/>
-<a name="me.schlaubi.regnumutils.common.formatting.FormatUtil"></a>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">FormatUtil</span></code> <a href="https://github.com/HawkDiscord/regnum-utils/tree/master/common/src/main/java/me/schlaubi/regnumutils/common/formatting/FormatUtil.java#L28">(source)</a>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">FormatUtil</span></code>
 <p>Some useful formatting helpers.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">FormatUtil</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>Some useful formatting helpers.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="format-collection.html">formatCollection</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">formatCollection</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.formatting.FormatUtil$formatCollection(kotlin.collections.MutableIterable((kotlin.CharSequence)), kotlin.CharSequence, kotlin.CharSequence, kotlin.CharSequence)/collection">collection</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-iterable/index.html"><span class="identifier">MutableIterable</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html"><span class="identifier">CharSequence</span></a><span class="symbol">!</span><span class="symbol">&gt;</span><span class="symbol">!</span><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.common.formatting.FormatUtil$formatCollection(kotlin.collections.MutableIterable((kotlin.CharSequence)), kotlin.CharSequence, kotlin.CharSequence, kotlin.CharSequence)/prefix">prefix</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html"><span class="identifier">CharSequence</span></a><span class="symbol">!</span><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.common.formatting.FormatUtil$formatCollection(kotlin.collections.MutableIterable((kotlin.CharSequence)), kotlin.CharSequence, kotlin.CharSequence, kotlin.CharSequence)/separator">separator</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html"><span class="identifier">CharSequence</span></a><span class="symbol">!</span><span class="symbol">, </span><span class="identifier" id="me.schlaubi.regnumutils.common.formatting.FormatUtil$formatCollection(kotlin.collections.MutableIterable((kotlin.CharSequence)), kotlin.CharSequence, kotlin.CharSequence, kotlin.CharSequence)/suffix">suffix</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html"><span class="identifier">CharSequence</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">!</span></code>
+<p>Formats an <code><a href="#">Iterable</a></code>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="format-multi-code-block-collection.html">formatMultiCodeBlockCollection</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">formatMultiCodeBlockCollection</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.formatting.FormatUtil$formatMultiCodeBlockCollection(kotlin.collections.MutableIterable((kotlin.CharSequence)))/iterable">iterable</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-iterable/index.html"><span class="identifier">MutableIterable</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html"><span class="identifier">CharSequence</span></a><span class="symbol">!</span><span class="symbol">&gt;</span><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">!</span></code>
+<p>Formats an <code><a href="#">Iterable</a></code> like <code>`element1`, `element2`</code></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="format-single-code-block-collection.html">formatSingleCodeBlockCollection</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">formatSingleCodeBlockCollection</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.formatting.FormatUtil$formatSingleCodeBlockCollection(kotlin.collections.MutableIterable((kotlin.CharSequence)))/iterable">iterable</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-iterable/index.html"><span class="identifier">MutableIterable</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html"><span class="identifier">CharSequence</span></a><span class="symbol">!</span><span class="symbol">&gt;</span><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">!</span></code>
+<p>Formats an <code><a href="#">Iterable</a></code> like <code>`element1, element2`</code></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="stringify-embed.html">stringifyEmbed</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">stringifyEmbed</span><span class="symbol">(</span><span class="identifier" id="me.schlaubi.regnumutils.common.formatting.FormatUtil$stringifyEmbed(net.dv8tion.jda.api.entities.MessageEmbed)/embed">embed</span><span class="symbol">:</span>&nbsp;<span class="identifier">MessageEmbed</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>Converts an <code><a href="#">MessageEmbed</a></code> into plain text.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </BODY>
 </HTML>

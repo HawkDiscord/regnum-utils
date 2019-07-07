@@ -26,24 +26,27 @@ import me.schlaubi.regnumutils.command.spi.permission.Permissions
  * @see AbstractCommand
  * @see Command
  */
-abstract class SubCommand(
+abstract class SubCommand @JvmOverloads constructor(
     displayName: String,
     permissions: Permissions,
     aliases: Array<String>,
     description: String,
-    exampleUsage: String
-) : AbstractCommand(displayName, permissions, aliases, description, exampleUsage) {
+    usage: String = "",
+    exampleUsage: String = ""
+) : AbstractCommand(displayName, permissions, aliases, description, usage, exampleUsage) {
 
     /**
      * @see AbstractCommand
      */
+    @JvmOverloads
     constructor(
         displayName: String,
         permissions: Permissions,
         alias: String,
         description: String,
+        usage: String = "",
         exampleUsage: String = ""
-    ) : this(displayName, permissions, arrayOf(alias), description, exampleUsage)
+    ) : this(displayName, permissions, arrayOf(alias), description, usage, exampleUsage)
 
     /**
      * The commands parent

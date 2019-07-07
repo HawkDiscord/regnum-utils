@@ -20,6 +20,7 @@
 package me.schlaubi.regnumutils.command.spi
 
 import me.schlaubi.regnumutils.command.CommandClient
+import me.schlaubi.regnumutils.command.util.CommandFormatter
 import me.schlaubi.regnumutils.common.messaging.SafeMessage
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.JDA
@@ -108,7 +109,6 @@ interface Context {
     /**
      * @see SafeMessage.sendMessage
      */
-
     fun respond(content: String, delay: Long, unit: TimeUnit = TimeUnit.SECONDS) =
         SafeMessage.sendMessage(channel, content, this::notifyUserAboutPermissionError, delay, unit)
 
@@ -133,6 +133,15 @@ interface Context {
      */
     fun respond(embedBuilder: EmbedBuilder, delay: Long, unit: TimeUnit = TimeUnit.SECONDS) =
         SafeMessage.sendMessage(channel, embedBuilder, this::notifyUserAboutPermissionError, delay, unit)
+
+
+    /**
+     * Sends a usage message.
+     * @see CommandFormatter.formatCommand
+     * @see Context.respond
+     * @return A [net.dv8tion.jda.api.requests.restaction.MessageAction]
+     */
+    fun sendUsage() = respond(CommandFormatter.formatCommand(commandClient, guild, command))
 
     /**
      * Sends the user an permission error via DM.

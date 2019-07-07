@@ -33,6 +33,12 @@ interface Command {
     val displayName: String
 
     /**
+     * The first alias of the command.
+     */
+    val name: String
+        get() = aliases.first()
+
+    /**
      * The [Permissions]s that are needed to execute that command.
      */
     val permissions: Permissions
@@ -46,6 +52,11 @@ interface Command {
      * The description of the command.
      */
     val description: String
+
+    /**
+     * The usage of the command.
+     */
+    val usage: String
 
     /**
      * An example of how to use the command.

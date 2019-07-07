@@ -82,11 +82,11 @@ class MutableCommandClientConfiguration : CommandClientConfiguration {
     }
 
     fun setDefaultPrefix(prefix: String) {
-        this._defaultPrefix = defaultPrefix
+        this._defaultPrefix = prefix
     }
 
     fun alwaysAcceptDefaultPrefix(alwaysAcceptDefaultPrefix: Boolean) {
-        this._alwaysDefaultPrefix = alwaysDefaultPrefix
+        this._alwaysDefaultPrefix = alwaysAcceptDefaultPrefix
     }
 
     fun setOwners(owners: MutableList<Long>) {

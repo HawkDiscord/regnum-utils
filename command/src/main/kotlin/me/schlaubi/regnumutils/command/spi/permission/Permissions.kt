@@ -65,6 +65,7 @@ interface Permissions {
          * Everyone can execute the command.
          */
         @JvmStatic
+        @JvmName("publicPermissions")
         fun public(): Permissions = publicPermission
 
         /**

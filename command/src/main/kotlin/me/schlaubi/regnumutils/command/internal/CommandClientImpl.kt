@@ -26,7 +26,7 @@ import me.schlaubi.regnumutils.command.event.CommandPermissionViolationEvent
 import me.schlaubi.regnumutils.command.spi.Command
 import me.schlaubi.regnumutils.command.spi.InformationProvider
 import me.schlaubi.regnumutils.command.spi.permission.PermissionHandler
-import me.schlaubi.regnumutils.command.utils.put
+import me.schlaubi.regnumutils.command.util.put
 import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.entities.Message
 import net.dv8tion.jda.api.events.GenericEvent
@@ -130,7 +130,7 @@ internal class CommandClientImpl(
         }
     }
 
-    private fun resolveCommand(
+    private tailrec fun resolveCommand(
         command: Command? = null,
         associations: Map<String, Command> = commandAssociations,
         args: List<String>

@@ -36,13 +36,21 @@ sealed class CommandListenerBase(protected val commandClient: CommandClient) : J
  * A command listener which listenes for [GuildMessageReceivedEvent]s.
  * @see me.schlaubi.regnumutils.command.CommandClientBuilder.setCommandListener
  */
-class MessageReceivedCommandListener(commandClient: CommandClient) : CommandListenerBase(commandClient)
+class MessageReceivedCommandListener(commandClient: CommandClient) : CommandListenerBase(commandClient) {
+
+    @EventSubscriber
+    override fun onGuildMessageReceived(event: GuildMessageReceivedEvent) = super.onGuildMessageReceived(event)
+}
 
 /**
  * A command listener which listenes for [GuildMessageReceivedEvent]s and [GuildMessageUpdateEvent]s.
  * @see me.schlaubi.regnumutils.command.CommandClientBuilder.setCommandListener
  */
 class MessageEditCommandListener(commandClient: CommandClient) : CommandListenerBase(commandClient) {
+
+    @EventSubscriber
+    override fun onGuildMessageReceived(event: GuildMessageReceivedEvent) = super.onGuildMessageReceived(event)
+
     @EventSubscriber
     override fun onGuildMessageUpdate(event: GuildMessageUpdateEvent) =
         commandClient.dispatchCommand(CommandClient.CommandEvent(event))

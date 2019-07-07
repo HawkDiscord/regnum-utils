@@ -14,7 +14,7 @@ plugins {
 }
 
 group = "me.schlaubi.regnumutils"
-version = "1.2.0-SNAPSHOT"
+version = "1.2.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -44,10 +44,10 @@ bintray {
     key = System.getenv("BINTRAY_KEY")
     pkg(delegateClosureOf<BintrayExtension.PackageConfig> {
         repo = "maven"
-        name = "regnum-utils-common"
+        name = "regnum-util-common"
         userOrg = "hawk"
         setLicenses("GPL-3.0")
-        vcsUrl = "https://github.com/HawkDiscord/regnum-utils.git"
+        vcsUrl = "https://github.com/HawkDiscord/regnum-util.git"
         version(delegateClosureOf<BintrayExtension.VersionConfig> {
             name = project.version as String
         })
@@ -93,14 +93,10 @@ tasks {
         noJdkLink = true
         reportUndocumented = true
         impliedPlatforms = mutableListOf("JVM")
-        sourceDirs = files("src/main/kotlin", "src/main/java")
-        sourceDirs.forEach {
-            val relativePath = rootDir.toPath().relativize(it.toPath()).toString()
-            linkMapping {
-                dir = it.absolutePath
-                url = "https://github.com/HawkDiscord/regnum-utils/tree/master/$relativePath"
-                suffix = "#L"
-            }
+        linkMapping {
+            dir = "./"
+            url = "https://github.com/HawkDiscord/regnum-util/tree/master"
+            suffix = "#L"
         }
         externalDocumentationLink {
             url = uri("https://www.slf4j.org/api/").toURL()
