@@ -104,7 +104,7 @@ interface Context {
     /**
      * @see SafeMessage.sendMessage
      */
-    fun respond(content: String) = SafeMessage.sendMessage(content, channel, this::notifyUserAboutPermissionError)
+    fun respond(content: String) = SafeMessage.sendMessage(channel, content, this::notifyUserAboutPermissionError)
 
     /**
      * @see SafeMessage.sendMessage
@@ -115,7 +115,7 @@ interface Context {
     /**
      * @see SafeMessage.sendMessage
      */
-    fun respond(embed: MessageEmbed) = SafeMessage.sendMessage(embed, channel, this::notifyUserAboutPermissionError)
+    fun respond(embed: MessageEmbed) = SafeMessage.sendMessage(channel, embed, this::notifyUserAboutPermissionError)
 
     /**
      * @see SafeMessage.sendMessage
@@ -126,7 +126,7 @@ interface Context {
     /**
      * @see SafeMessage.sendMessage
      */
-    fun respond(embedBuilder: EmbedBuilder) = SafeMessage.sendMessage(embedBuilder, channel, this::notifyUserAboutPermissionError)
+    fun respond(embedBuilder: EmbedBuilder) = SafeMessage.sendMessage(channel, embedBuilder, this::notifyUserAboutPermissionError)
 
     /**
      * @see SafeMessage.sendMessage

@@ -58,7 +58,6 @@ public class SafeMessage {
      */
     @SuppressWarnings("CanBeFinal")
     @NotNull
-    @SuppressWarnings("CanBeFinal")
     public static Runnable DEFAULT_ERROR_HANDLER = () -> {
 
     };
